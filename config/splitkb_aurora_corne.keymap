@@ -54,18 +54,18 @@
 			label = "LEFT_HOMEROW_MODS";
 			#binding-cells = <2>;
 			flavor = "tap-unless-interrupted";
-			tapping-term-ms = <100>;
-			quick-tap-ms = <200>;
+			tapping-term-ms = <200>;
+			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
-			hold-trigger-key-positions = <6 7 8 9 10 11  18 19 20 21 22 23  34 35 36 37 38 39>;
+			hold-trigger-key-positions = <6 7 8 9 10 11  18 19 20 21 22 23  30 31 32 33 34 35>;
 		};
 		rm: right_hand_positional_hold_tap {
 			compatible = "zmk,behavior-hold-tap";
 			label = "RIGHT_HOMEROW_MODS";
 			#binding-cells = <2>;
 			flavor = "tap-unless-interrupted";
-			tapping-term-ms = <100>;
-			quick-tap-ms = <200>;
+			tapping-term-ms = <200>;
+			quick-tap-ms = <100>;
 			bindings = <&kp>, <&kp>;
 			hold-trigger-key-positions = <0 1 2 3 4 5  12 13 14 15 16 17  24 25 26 27 28 29>;
 		};
@@ -99,7 +99,7 @@
 // -----------------------------------------------------------------------------------------
 		default_layer {
 			bindings = <
-	&kp RA(Q)     &hm LM1 Q &hm LM2 W &hm LM3 E &hm LM4 R &kp T     &kp Y   &hm RM1 U &hm RM2 I &hm RM3 O &hm RM4 P    &kp RA(P)
+	&kp RA(Q)     &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y   &kp U     &kp I     &kp O     &kp P        &kp RA(P)
 	&kp BSPC      &lm LM1 A &lm LM2 S &lm LM3 D &lm LM4 F &kp G     &kp H   &rm RM1 J &rm RM2 K &rm RM3 L &rm RM4 SEMI &kp SQT
 	&mt LSHFT ESC &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N   &kp M     &kp COMMA &kp DOT   &kp FSLH     &kp RSHFT
 	&mo FUN       &kp SPACE &mo NAV                                 &mo NAV &mo NUM   &kp RET
@@ -125,7 +125,7 @@
 		number_layer {
 			bindings = <
 	&kp RA(N5) &kp PIPE      &kp DLLR      &kp LBRC      &kp RBRC      &kp CARET     &kp TILDE &kp N7  &kp N8  &kp N9  &kp MINUS &kp EQUAL
-	&trans     &mt LM1 HASH  &mt LM2 AMPS  &mt LM3 LPAR  &mt LM4 RPAR  &kp GRAVE     &kp PRCNT &kp N4  &kp N5  &kp N6  &kp N0    &kp PLUS
+	&trans     &lm LM1 HASH  &lm LM2 AMPS  &lm LM3 LPAR  &lm LM4 RPAR  &kp GRAVE     &kp PRCNT &kp N4  &kp N5  &kp N6  &kp N0    &kp PLUS
 	&trans     &kp BSLH      &kp EXCL      &kp LBKT      &kp RBKT      &kp AT        &kp STAR  &kp N1  &kp N2  &kp N3  &kp DOT   &kp COMMA
 	&trans     &trans        &trans                                                  &trans    &trans  &trans
 			>;

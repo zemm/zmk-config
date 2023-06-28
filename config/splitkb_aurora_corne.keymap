@@ -108,7 +108,7 @@
 
 		navigation_layer {
 			bindings = <
-	&kp TAB  &kp LC(LS(Z)) &none     &sk RALT  &kp LC(R)  &kp RET        &kp INS   &kp PG_UP &kp UP   &kp PG_DN &kp RS(TAB) &kp TAB
+	&kp TAB  &kp LC(LS(Z)) &none     &sk RALT  &none      &kp RET        &kp INS   &kp PG_UP &kp UP   &kp PG_DN &kp RS(TAB) &kp TAB
 	&trans   &sk LM1       &sk LM2   &sk LM3   &sk LM4    &kp DEL        &kp HOME  &kp LEFT  &kp DOWN &kp RIGHT &kp END     &kp SPACE
 	&trans   &kp LC(Z)     &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(LS(V))  &none     &sk RCTRL &sk RALT &sk RSHFT &sk RGUI    &trans
 	&trans   &trans        &trans                                        &trans    &trans    &trans
@@ -118,14 +118,14 @@
 // Could add: _ " < > / ?
 // TODO: move numbers to left, because of mouse
 // -----------------------------------------------------------------------------------------
-// | €   | |   | $   | {   | }   | ^   |   |     | 7   | 8   | 9   | -   | =   |
-// | ~   | #   | &   | (   | )   | `   |   | %   | 4   | 5   | 6   | 0   | +   |
+// | €   | |   | $   | {   | }   | ^   |   | ~   | 7   | 8   | 9   | -   | =   |
+// |     | #   | &   | (   | )   | `   |   | %   | 4   | 5   | 6   | 0   | +   |
 // |     | \   | !   | [   | ]   | @   |   | *   | 1   | 2   | 3   | .   | ,   |
 // -----------------------------------------------------------------------------------------
 		number_layer {
 			bindings = <
-	&kp RA(N5) &kp PIPE      &kp DLLR      &kp LBRC      &kp RBRC      &kp CARET     &none     &kp N7  &kp N8  &kp N9  &kp MINUS &kp EQUAL
-	&kp TILDE  &mt LM1 HASH  &mt LM2 AMPS  &mt LM3 LPAR  &mt LM4 RPAR  &kp GRAVE     &kp PRCNT &kp N4  &kp N5  &kp N6  &kp N0    &kp PLUS
+	&kp RA(N5) &kp PIPE      &kp DLLR      &kp LBRC      &kp RBRC      &kp CARET     &kp TILDE &kp N7  &kp N8  &kp N9  &kp MINUS &kp EQUAL
+	&trans     &mt LM1 HASH  &mt LM2 AMPS  &mt LM3 LPAR  &mt LM4 RPAR  &kp GRAVE     &kp PRCNT &kp N4  &kp N5  &kp N6  &kp N0    &kp PLUS
 	&trans     &kp BSLH      &kp EXCL      &kp LBKT      &kp RBKT      &kp AT        &kp STAR  &kp N1  &kp N2  &kp N3  &kp DOT   &kp COMMA
 	&trans     &trans        &trans                                                  &trans    &trans  &trans
 			>;
@@ -139,5 +139,5 @@
 	&trans       &trans       &trans                                                      &trans &trans &trans
 			>;
 		};
-
+	};
 };

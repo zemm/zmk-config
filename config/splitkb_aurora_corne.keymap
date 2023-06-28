@@ -95,9 +95,9 @@
 		// Colemak on OS side
 		default_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+// |     |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |     |
+// |     |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '  |
+// |     |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |     |
 // -----------------------------------------------------------------------------------------
 			bindings = <
 	&kp RA(Q)     &hm LM1 Q &hm LM2 W &hm LM3 E &hm LM4 R &kp T     &kp Y   &hm RM1 U &hm RM2 I &hm RM3 O &hm RM4 P    &kp RA(P)

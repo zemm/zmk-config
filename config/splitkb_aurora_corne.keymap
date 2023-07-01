@@ -131,9 +131,9 @@
 // -----------------------------------------------------------------------------------------
 		number_layer {
 			bindings = <
-	&kp RA(N5) &kp PIPE      &kp DLLR      &kp LBRC      &kp RBRC      &kp CARET     &kp TILDE &kp N7  &kp N8  &kp N9  &kp MINUS &kp EQUAL
-	&trans     &lm LM1 HASH  &lm LM2 AMPS  &lm LM3 LPAR  &lm LM4 RPAR  &kp GRAVE     &kp PRCNT &kp N4  &kp N5  &kp N6  &kp N0    &kp PLUS
-	&trans     &kp BSLH      &kp EXCL      &kp LBKT      &kp RBKT      &kp AT        &kp STAR  &kp N1  &kp N2  &kp N3  &kp DOT   &kp COMMA
+	&kp RA(N5) &kp EXCL      &kp DLLR      &kp LBRC      &kp RBRC      &kp CARET     &kp TILDE &kp N7  &kp N8  &kp N9  &kp MINUS &kp EQUAL
+	&trans     &lm LM1 PIPE  &lm LM2 AMPS  &lm LM3 LPAR  &lm LM4 RPAR  &kp GRAVE     &kp PRCNT &kp N4  &kp N5  &kp N6  &kp N0    &kp PLUS
+	&trans     &kp HASH      &kp BSLH      &kp LBKT      &kp RBKT      &kp AT        &kp STAR  &kp N1  &kp N2  &kp N3  &kp DOT   &kp COMMA
 	&trans     &trans        &trans                                                  &trans    &trans  &trans
 			>;
 		};

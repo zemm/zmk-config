@@ -93,18 +93,6 @@
 			key-positions = <36 41>;
 			layers = <DEF>;
 		};
-		combo_alt_tab {
-			timeout-ms = <30>;
-			bindings = <&kp LC(LS(TAB))>;
-			key-positions = <15 0>;
-			layers = <DEF>;
-		};
-		combo_alt_shift_tab {
-			timeout-ms = <30>;
-			bindings = <&kp LC(LS(TAB))>;
-			key-positions = <15 24>;
-			layers = <DEF>;
-		};
 	};
 
 	keymap {
@@ -121,7 +109,7 @@
 	&kp ESC       &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y   &kp U     &kp I     &kp O     &kp P        &kp RA(Q)
 	&kp BSPC      &lm LM1 A &lm LM2 S &lm LM3 D &lm LM4 F &kp G     &kp H   &rm RM1 J &rm RM2 K &rm RM3 L &rm RM4 SEMI &kp SQT
 	&kp LSHFT     &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N   &kp M     &kp COMMA &kp DOT   &kp FSLH     &mt RSHFT RA(P)
-	&mo NUM       &lt NAV SPACE &mo NAV                             &mo NAV &lt NUM SPACE   &kp RET
+	&mo NUM       &lt NAV SPACE &mo NAV                             &mo NAV &lt NUM SPACE   &lt FUN RET
 			>;
 		};
 

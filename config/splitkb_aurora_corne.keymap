@@ -44,7 +44,6 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "LEFT_HOMEROW_MODS";
 			#binding-cells = <2>;
-			//flavor = "tap-unless-interrupted";
 			flavor = "tap-preferred";
 			tapping-term-ms = <300>;
 			quick-tap-ms = <250>;
@@ -55,7 +54,6 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "RIGHT_HOMEROW_MODS";
 			#binding-cells = <2>;
-			//flavor = "tap-unless-interrupted";
 			flavor = "tap-preferred";
 			tapping-term-ms = <300>;
 			quick-tap-ms = <250>;
@@ -176,9 +174,9 @@
 
 		keypad_layer {
 			bindings = <
-	&trans    &trans    &trans  &trans  &trans  &trans       &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS  &kp KP_DIVIDE
-	&trans    &kp LSHFT &trans  &trans  &trans  &trans       &none       &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS   &kp KP_MULTIPLY
-	&trans    &trans    &trans  &trans  &trans  &trans       &none       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_ENTER  &kp KP_NUMLOCK
+	&trans    &trans    &trans  &trans  &trans  &trans       &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
+	&trans    &kp LSHFT &trans  &trans  &trans  &trans       &none       &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MULTIPLY
+	&trans    &trans    &trans  &trans  &trans  &trans       &none       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT   &kp KP_ENTER
 	&kp LCTRL &kp SPACE &kp LALT                             &kp LALT    &kp KP_N0  &kp SPACE
 			>;
 		};

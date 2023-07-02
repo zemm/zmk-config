@@ -95,6 +95,10 @@
 		};
 	};
 
+	macros {
+		ZMK_MACRO(comma_space, bindings = <&kp COMMA &kp SPACE>;)
+	};
+
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -109,7 +113,7 @@
 	&kp ESC       &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y   &kp U     &kp I     &kp O     &kp P        &kp RA(Q)
 	&kp BSPC      &lm LM1 A &lm LM2 S &lm LM3 D &lm LM4 F &kp G     &kp H   &rm RM1 J &rm RM2 K &rm RM3 L &rm RM4 SEMI &kp SQT
 	&kp LSHFT     &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N   &kp M     &kp COMMA &kp DOT   &kp FSLH     &mt RSHFT RA(P)
-	&mo NUM       &lt NAV SPACE &mo NAV                             &mo NAV &lt NUM   &lt FUN RET
+	&mt NUM RET   &lt NAV SPACE &mo NAV                             &mo NAV &lt NUM   &key_repeat
 			>;
 		};
 
@@ -122,19 +126,18 @@
 			>;
 		};
 
-// Could add: _ " < > / ?
-// TODO: move numbers to left, because of mouse
+// Numbers on the left, because of mouse on the right hand
 // -----------------------------------------------------------------------------------------
-// | €   | |   | $   | {   | }   | ^   |   | ~   | 7   | 8   | 9   | -   | =   |
-// |     | #   | &   | (   | )   | `   |   | %   | 4   | 5   | 6   | 0   | +   |
-// |     | \   | !   | [   | ]   | @   |   | *   | 1   | 2   | 3   | .   | ,   |
+// | ~   | +   | 7   | 8   | 9   | %   |   | ^   | $   | {   | }   | _   | -   |
+// |     | 0   | 4   | 5   | 6   | .   |   | `   | |   | (   | )   | ;   | "   |
+// | €   | =   | 1   | 2   | 3   | !   |   | \   | &   | [   | ]   | /   | *   |
 // -----------------------------------------------------------------------------------------
 		number_layer {
 			bindings = <
-	&kp RA(N5) &kp EXCL      &kp DLLR      &kp LBRC      &kp RBRC      &kp CARET     &kp TILDE &kp N7  &kp N8  &kp N9  &kp MINUS &kp EQUAL
-	&trans     &lm LM1 PIPE  &lm LM2 AMPS  &lm LM3 LPAR  &lm LM4 RPAR  &kp GRAVE     &kp PRCNT &kp N4  &kp N5  &kp N6  &kp N0    &kp PLUS
-	&trans     &kp HASH      &kp BSLH      &kp LBKT      &kp RBKT      &kp AT        &kp STAR  &kp N1  &kp N2  &kp N3  &kp DOT   &kp COMMA
-	&trans     &trans        &trans                                                  &trans    &trans  &trans
+	&kp TILDE  &kp PLUS   &kp N7     &lm RALT N8 &kp N9     &kp PRCNT     &kp CARET &kp DOLLAR   &kp LBRC     &rm RALT RBRC &kp UNDER    &kp MINUS
+	&trans     &lm LM1 N0 &lm LM2 N4 &lm LM3 N5  &lm LM4 N6 &kp DOT       &kp GRAVE &rm RM1 PIPE &rm RM2 LPAR &rm RM3 RPAR  &rm RM4 SEMI &kp DQT
+	&kp RA(N5) &kp EQUAL  &kp N1     &kp N2      &kp N3     &kp EXCL      &kp BSLH  &kp AMPS     &kp LBKT     &kp RBKT      &trans       &kp STAR
+	&trans     &kp SPACE  &comma_space                                    &comma_space  &kp SPACE  &trans
 			>;
 		};
 

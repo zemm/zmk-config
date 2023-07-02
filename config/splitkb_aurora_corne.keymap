@@ -36,8 +36,8 @@
 			label = "LAYER_TAP";
 			#binding-cells = <2>;
 			flavor = "tap-preferred";
-			tapping-term-ms = <150>;
-			quick_tap_ms = <130>;
+			tapping-term-ms = <180>;
+			quick_tap_ms = <150>;
 			bindings = <&mo>, <&kp>;
 		};
 		hm: homerow_mods {

@@ -30,16 +30,6 @@
 
 / {
 	behaviors {
-		dk: double-key {
-			compatible = "zmk,behavior-hold-tap";
-			label = "DOUBLE_KEY";
-			#binding-cells = <2>;
-			flavor = "tap-preferred";
-			tapping-term-ms = <200>;
-			quick-tap-ms = <100>;
-			#global-quick-tap;
-			bindings = <&kp>, <&kp>;
-		};
 		hm: homerow_mods {
 			compatible = "zmk,behavior-hold-tap";
 			label = "HOMEROW_MODS";
@@ -81,17 +71,55 @@
 
 	combos {
 		compatible = "zmk,combos";
-		combo_caps_word {
-			timeout-ms = <20>;
-			bindings = <&caps_word>;
-			key-positions = <19 20 21>;
-			layers = <DEF>;
-		};
 		combo_to_fun {
 			//timeout-ms = <20>;
 			bindings = <&mo FUN>;
 			key-positions = <36 41>;
 			layers = <DEF>;
+		};
+		combo_caps_word_left {
+			timeout-ms = <20>;
+			bindings = <&caps_word>;
+			key-positions = <14 15 16>;
+			layers = <DEF>;
+		};
+		combo_caps_word_right {
+			timeout-ms = <20>;
+			bindings = <&caps_word>;
+			key-positions = <19 20 21>;
+			layers = <DEF>;
+		};
+		// left hand triplets
+		combo_pause_break {
+			timeout-ms = <20>;
+			bindings = <&kp PAUSE_BREAK>;
+			key-positions = <1 2 3>;
+		};
+		combo_print_screen {
+			timeout-ms = <20>;
+			bindings = <&kp PRINTSCREEN>;
+			key-positions = <13 14 15>;
+		};
+		combo_scroll_lock {
+			timeout-ms = <20>;
+			bindings = <&kp SCROLLLOCK>;
+			key-positions = <25 26 27>;
+		};
+		// right hand triplets
+		combo_sysreq {
+			timeout-ms = <20>;
+			bindings = <&kp SYSREQ>;
+			key-positions = <8 9 10>;
+		};
+		combo_num_lock {
+			timeout-ms = <20>;
+			bindings = <&kp KP_NUMLOCK>;
+			key-positions = <20 21 22>;
+		};
+		combo_caps_lock {
+			timeout-ms = <20>;
+			bindings = <&kp CAPSLOCK>;
+			key-positions = <32 33 34>;
 		};
 	};
 

@@ -167,9 +167,9 @@
 
 		navigation_layer {
 			bindings = <
-	&kp TAB     &kp LC(LS(Z)) &sk RALT  &none     &none      &kp RET        &unstick  &kp PG_UP &kp UP    &kp PG_DN &none     &kp TAB
+	&kp TAB     &kp LC(LS(Z)) &sk RALT  &none     &none      &kp RET        &kp INS   &kp PG_UP &kp UP    &kp PG_DN &none     &kp TAB
 	&trans      &sk LM1       &sk LM2   &sk LM3   &sk LM4    &kp DEL        &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &kp SPACE
-	&kp LS(TAB) &kp LC(Z)     &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(LS(V))  &kp INS   &sk RCTRL &sk RSHFT &sk RALT  &sk RGUI  &kp RS(TAB)
+	&kp LS(TAB) &kp LC(Z)     &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(LS(V))  &unstick  &sk RCTRL &sk RSHFT &sk RALT  &sk RGUI  &kp RS(TAB)
 	&trans      &trans        &trans                                        &kp RET   &kp SPACE &kp ESC
 			>;
 		};
@@ -191,9 +191,9 @@
 
 		function_layer {
 			bindings = <
-	&kp C_VOL_UP &kp C_MUTE   &kp C_PREV   &kp C_PLAY_PAUSE &kp C_NEXT   &kp PSCRN        &unstick &kp F7 &kp F8 &kp F9 &kp F12 &none
+	&kp C_VOL_UP &kp C_MUTE   &kp C_PREV   &kp C_PLAY_PAUSE &kp C_NEXT   &kp PSCRN        &none    &kp F7 &kp F8 &kp F9 &kp F12 &none
 	&kp C_VOL_DN &kp LM1      &kp LM2      &kp LM3          &kp LM4      &out OUT_TOG     &none    &kp F4 &kp F5 &kp F6 &kp F11 &none
-	&none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3 &bt BT_CLR       &reset   &kp F1 &kp F2 &kp F3 &kp F10 &none
+	&none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3 &bt BT_CLR       &unstick &kp F1 &kp F2 &kp F3 &kp F10 &none
 	&trans       &trans       &trans                                                      &trans   &trans &trans
 			>;
 		};

@@ -157,6 +157,9 @@
 		ZMK_MACRO(arr_d_r, bindings = <&kp EQUAL &kp LS(DOT)>;)
 		ZMK_MACRO(arr_p_l, bindings = <&kp LS(COMMA) &kp PIPE>;)
 		ZMK_MACRO(arr_p_r, bindings = <&kp PIPE &kp LS(DOT)>;)
+		ZMK_MACRO(eoblock, bindings = <&kp RBRC &kp SEMI &kp RET>;)
+		ZMK_MACRO(sp_eq_sp, bindings = <&kp SPACE &kp EQUAL &kp SPACE>;)
+		ZMK_MACRO(sp_neq_sp, bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;)
 	};
 
 	keymap {
@@ -179,11 +182,11 @@
 
 		macro_layer {
 			bindings = <
-	&none  &none  &none  &none  &none  &none       &none    &none    &arr_p_l &arr_p_r &none    &none
-	&none  &none  &none  &none  &none  &none       &none    &none    &arr_s_l &arr_s_r &none    &none
-	&none  &none  &none  &none  &none  &none       &none    &none    &arr_d_l &arr_d_r &none    &none
+	&none  &none  &none  &none  &none  &none       &none    &none    &arr_p_l &arr_p_r &eoblock   &none
+	&none  &none  &none  &none  &none  &none       &none    &none    &arr_s_l &arr_s_r &sp_eq_sp  &none
+	&none  &none  &none  &none  &none  &none       &none    &none    &arr_d_l &arr_d_r &sp_neq_sp &none
 	&none  &none  &none                            &none    &none    &none
-			>;
+				>;
 		};
 
 		navigation_layer {

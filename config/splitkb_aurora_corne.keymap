@@ -10,10 +10,11 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEF 0
-#define NAV 1
-#define NUM 2
-#define FUN 3
-#define KPD 4
+#define MAC 1
+#define NAV 2
+#define NUM 3
+#define FUN 4
+#define KPD 5
 
 // Modifiers for left/right side
 #define LM1 LGUI
@@ -89,28 +90,34 @@
 //                   | 36  | 37  | 38  |   | 39  | 40  | 41  |
 	combos {
 		compatible = "zmk,combos";
-		combo_to_fun {
+		combo_mo_fun {
 			//timeout-ms = <20>;
 			bindings = <&mo FUN>;
 			key-positions = <36 41>;
 			layers = <DEF>;
 		};
 		// left hand triplets
+		combo_scroll_lock {
+			timeout-ms = <20>;
+			bindings = <&kp SCROLLLOCK>;
+			key-positions = <1 2 3>;
+		};
 		combo_print_screen {
 			timeout-ms = <20>;
 			bindings = <&kp PRINTSCREEN>;
 			key-positions = <2 3 4>;
 		};
-		combo_keypad {
+		combo_mo_macros {
 			timeout-ms = <20>;
-			bindings = <&mo KPD>;
+			bindings = <&mo MACROS>;
 			key-positions = <14 15 16>;
 			layers = <DEF>;
 		};
-		combo_scroll_lock {
+		combo_mo_keypad {
 			timeout-ms = <20>;
-			bindings = <&kp SCROLLLOCK>;
-			key-positions = <25 26 27>;
+			bindings = <&mo KPD>;
+			key-positions = <26 27 28>;
+			layers = <DEF>;
 		};
 		// right hand triplets
 		combo_pause_break {
@@ -137,14 +144,17 @@
 	};
 
 	macros {
-		ZMK_MACRO(comma_space, bindings = <&kp COMMA &kp SPACE>;)
-
 		unstick: unstick {
 			label = "ZM_unstick";
 			compatible = "zmk,behavior-macro";
 			#binding-cells = <0>;
 			bindings = <&kp LSHIFT &kp RSHIFT &kp LCTRL &kp RCTRL &kp LALT &kp RALT &kp LGUI &kp RGUI>;
 		};
+		ZMK_MACRO(comma_space, bindings = <&kp COMMA &kp SPACE>;)
+		ZMK_MACRO(arrowl1, bindings = <&kp LS(COMMA) &kp MINUS>;)
+		ZMK_MACRO(arrowr1, bindings = <&kp MINUS &kp LS(DOT)>;)
+		ZMK_MACRO(arrowl2, bindings = <&kp LS(COMMA) &kp EQUAL>;)
+		ZMK_MACRO(arrowr2, bindings = <&kp EQUAL &kp LS(DOT)>;)
 	};
 
 	keymap {
@@ -162,6 +172,15 @@
 	&kp BSPC      &lm LM1 A &lm LM2 S &lm LM3 D &lm LM4 F &kp G     &kp H   &rm RM1 J &rm RM2 K &rm RM3 L &rm RM4 SEMI &kp SQT
 	&mt LSHFT TAB &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N   &kp M     &kp COMMA &kp DOT   &kp FSLH     &mt RSHFT RA(P)
 	&lth NUM RET  &kp SPACE &mo NAV                                 &lth NAV RET      &sl NUM   &key_repeat
+			>;
+		};
+
+		macro_layer {
+			bindings = <
+	&none  &none  &none  &none  &none  &none       &none    &none    &none    &none    &none    &none
+	&none  &none  &none  &none  &none  &none       &none    &none    &arrowl1 &arrowr1 &none    &none
+	&none  &none  &none  &none  &none  &none       &none    &none    &arrowl2 &arrowr2 &none    &none
+	&none  &none  &none                            &none    &none    &none
 			>;
 		};
 

@@ -108,13 +108,13 @@
 			key-positions = <2 3 4>;
 		};
 		combo_mo_macros {
-			timeout-ms = <20>;
+			timeout-ms = <30>;
 			bindings = <&mo MAC>;
 			key-positions = <14 15 16>;
 			layers = <DEF>;
 		};
 		combo_mo_keypad {
-			timeout-ms = <20>;
+			timeout-ms = <30>;
 			bindings = <&mo KPD>;
 			key-positions = <26 27 28>;
 			layers = <DEF>;
@@ -151,10 +151,12 @@
 			bindings = <&kp LSHIFT &kp RSHIFT &kp LCTRL &kp RCTRL &kp LALT &kp RALT &kp LGUI &kp RGUI>;
 		};
 		ZMK_MACRO(comma_space, bindings = <&kp COMMA &kp SPACE>;)
-		ZMK_MACRO(arrowl1, bindings = <&kp LS(COMMA) &kp MINUS>;)
-		ZMK_MACRO(arrowr1, bindings = <&kp MINUS &kp LS(DOT)>;)
-		ZMK_MACRO(arrowl2, bindings = <&kp LS(COMMA) &kp EQUAL>;)
-		ZMK_MACRO(arrowr2, bindings = <&kp EQUAL &kp LS(DOT)>;)
+		ZMK_MACRO(arr_s_l, bindings = <&kp LS(COMMA) &kp MINUS>;)
+		ZMK_MACRO(arr_s_r, bindings = <&kp MINUS &kp LS(DOT)>;)
+		ZMK_MACRO(arr_d_l, bindings = <&kp LS(COMMA) &kp EQUAL>;)
+		ZMK_MACRO(arr_d_r, bindings = <&kp EQUAL &kp LS(DOT)>;)
+		ZMK_MACRO(arr_p_l, bindings = <&kp LS(COMMA) &kp PIPE>;)
+		ZMK_MACRO(arr_p_r, bindings = <&kp PIPE &kp LS(DOT)>;)
 	};
 
 	keymap {
@@ -177,9 +179,9 @@
 
 		macro_layer {
 			bindings = <
-	&none  &none  &none  &none  &none  &none       &none    &none    &none    &none    &none    &none
-	&none  &none  &none  &none  &none  &none       &none    &none    &arrowl1 &arrowr1 &none    &none
-	&none  &none  &none  &none  &none  &none       &none    &none    &arrowl2 &arrowr2 &none    &none
+	&none  &none  &none  &none  &none  &none       &none    &none    &arr_p_l &arr_p_r &none    &none
+	&none  &none  &none  &none  &none  &none       &none    &none    &arr_s_l &arr_s_r &none    &none
+	&none  &none  &none  &none  &none  &none       &none    &none    &arr_d_l &arr_d_r &none    &none
 	&none  &none  &none                            &none    &none    &none
 			>;
 		};

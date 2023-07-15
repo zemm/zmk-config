@@ -167,9 +167,9 @@
 
 		navigation_layer {
 			bindings = <
-	&kp TAB     &kp LC(LS(Z)) &sk RALT  &kp F2    &kp F4     &kp RET        &kp INS   &kp PG_UP &kp UP    &kp PG_DN &none     &kp TAB
+	&kp ESC     &kp LC(LS(Z)) &sk RALT  &kp F2    &kp F4     &kp RET        &kp INS   &kp PG_UP &kp UP    &kp PG_DN &none     &kp TAB
 	&trans      &sk LM1       &sk LM2   &sk LM3   &sk LM4    &kp DEL        &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &kp SPACE
-	&kp LS(TAB) &kp LC(Z)     &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(LS(V))  &unstick  &sk RCTRL &sk RSHFT &sk RALT  &sk RGUI  &kp RS(TAB)
+	&kp TAB     &kp LC(Z)     &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(LS(V))  &unstick  &sk RCTRL &sk RSHFT &sk RALT  &sk RGUI  &kp RS(TAB)
 	&trans      &trans        &trans                                        &kp RET   &kp SPACE &kp ESC
 			>;
 		};

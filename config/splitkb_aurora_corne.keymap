@@ -109,7 +109,7 @@
 		};
 		combo_mo_macros {
 			timeout-ms = <20>;
-			bindings = <&mo MACROS>;
+			bindings = <&mo MAC>;
 			key-positions = <14 15 16>;
 			layers = <DEF>;
 		};

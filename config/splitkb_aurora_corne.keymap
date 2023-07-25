@@ -29,6 +29,7 @@
 // Shortenings
 #define KP_MUL KP_MULTIPLY
 #define KP_DIV KP_DIVIDE
+#define ___
 
 / {
 	behaviors {
@@ -80,6 +81,25 @@
 			quick-tap-ms = <250>;
 			bindings = <&kp>, <&kp>;
 			hold-trigger-key-positions = <0 1 2 3 4 5  12 13 14 15 16 17  24 25 26 27 28 29>;
+		};
+		// Layers with mods
+		mnum: momentary_num_mod_tap {
+			compatible = "zmk,behavior-hold-tap";
+			label = "MOMENTARY_NUM_MOD_TAP";
+			#binding-cells = <2>;
+			flavor = "tap-preferred";
+			tapping-term-ms = <300>;
+			quick-tap-ms = <250>;
+			bindings = <&num_with_mod>, <&kp>;
+		};
+		mnav: momentary_nav_mod_tap {
+			compatible = "zmk,behavior-hold-tap";
+			label = "MOMENTARY_NAV_MOD_TAP";
+			#binding-cells = <2>;
+			flavor = "tap-preferred";
+			tapping-term-ms = <300>;
+			quick-tap-ms = <250>;
+			bindings = <&nav_with_mod>, <&kp>;
 		};
 	};
 
@@ -160,6 +180,31 @@
 		ZMK_MACRO(eoblock, bindings = <&kp RBRC &kp SEMI &kp RET>;)
 		ZMK_MACRO(sp_eq_sp, bindings = <&kp SPACE &kp EQUAL &kp SPACE>;)
 		ZMK_MACRO(sp_neq_sp, bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;)
+		// @TODO: how to do this with ZMK_MACRO1?
+		ZMK_MACRO1(nav_with_mod,
+			wait-ms = <0>;
+			bindings
+				= <&macro_press &mo NAV>
+				, <&macro_param_1to1>
+				, <&macro_press &kp MACRO_PLACEHOLDER>
+				, <&macro_pause_for_release>
+				, <&macro_param_1to1>
+				, <&macro_release &kp MACRO_PLACEHOLDER>
+				, <&macro_release &mo NAV>
+			;
+		)
+		ZMK_MACRO1(num_with_mod,
+			wait-ms = <0>;
+			bindings
+				= <&macro_press &mo NUM>
+				, <&macro_param_1to1>
+				, <&macro_press &kp MACRO_PLACEHOLDER>
+				, <&macro_pause_for_release>
+				, <&macro_param_1to1>
+				, <&macro_release &kp MACRO_PLACEHOLDER>
+				, <&macro_release &mo NUM>
+			;
+		)
 	};
 
 	keymap {
@@ -171,63 +216,64 @@
 // |     |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '  |
 // |     |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |     |
 // -----------------------------------------------------------------------------------------
+//	&kp TAB       &mnav N1 Q &mnav N2 W &mnav N3 E &mnav N4 R &mnav 0 T  ___  &mnum 0 Y    &mnum N1 U &mnum N2 I &mnum N3 O &mnum N4 P  &kp RA(Q)
 		default_layer {
 			bindings = <
-	&kp ESC       &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y   &kp U     &kp I     &kp O     &kp P        &kp RA(Q)
-	&kp BSPC      &lm LM1 A &lm LM2 S &lm LM3 D &lm LM4 F &kp G     &kp H   &rm RM1 J &rm RM2 K &rm RM3 L &rm RM4 SEMI &kp SQT
-	&mt LSHFT TAB &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N   &kp M     &kp COMMA &kp DOT   &kp FSLH     &mt RSHFT RA(P)
-	&lth NUM RET  &kp SPACE &mo NAV                                 &lth NAV RET      &sl NUM   &key_repeat
+	&kp TAB       &mnav LM1 Q &mnav LM2 W &mnav LM3 E &mnav LM4 R &mnav 0 T  ___  &mnum 0 Y    &mnum RM1 U &mnum RM2 I &mnum RM3 O &mnum RM4 P  &kp RA(Q)
+	&kp BSPC      &lm LM1 A   &lm LM2 S   &lm LM3 D   &lm LM4 F   &kp G      ___  &kp H        &rm RM1 J   &rm RM2 K   &rm RM3 L   &rm RM4 SEMI &kp SQT
+	&mt LSHFT ESC &kp Z       &kp X       &kp C       &kp V       &kp B      ___  &kp N        &kp M       &kp COMMA   &kp DOT     &kp FSLH     &mt RSHFT RA(P)
+	&lth NUM RET  &kp SPACE   &mo NAV                                        ___  &lth NAV RET &sl NUM     &key_repeat
 			>;
 		};
 
 		macro_layer {
 			bindings = <
-	&none  &none  &none  &none  &none  &none       &none    &none    &arr_p_l &arr_p_r &eoblock   &none
-	&none  &none  &none  &none  &none  &none       &none    &none    &arr_s_l &arr_s_r &sp_eq_sp  &none
-	&none  &none  &none  &none  &none  &none       &none    &none    &arr_d_l &arr_d_r &sp_neq_sp &none
-	&none  &none  &none                            &none    &none    &none
+	&none  &none  &none  &none  &none  &none  ___  &none    &none    &arr_p_l &arr_p_r &eoblock   &none
+	&none  &none  &none  &none  &none  &none  ___  &none    &none    &arr_s_l &arr_s_r &sp_eq_sp  &none
+	&none  &none  &none  &none  &none  &none  ___  &none    &none    &arr_d_l &arr_d_r &sp_neq_sp &none
+	&none  &none  &none                       ___  &none    &none    &none
 				>;
 		};
 
 		navigation_layer {
 			bindings = <
-	&kp ESC     &kp LC(LS(Z)) &sk RALT  &kp F2    &kp F4     &kp RET        &kp INS   &kp PG_UP &kp UP    &kp PG_DN &none     &kp TAB
-	&trans      &sk LM1       &sk LM2   &sk LM3   &sk LM4    &kp DEL        &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &kp SPACE
-	&kp TAB     &kp LC(Z)     &kp LC(X) &kp LC(C) &kp LC(V)  &kp LC(LS(V))  &unstick  &sk RCTRL &sk RSHFT &sk RALT  &sk RGUI  &kp RS(TAB)
-	&trans      &trans        &trans                                        &kp RET   &kp SPACE &kp ESC
+	&trans      &kp LC(LS(Z)) &kp LC(S) &kp LC(E) &kp RALT   &kp F4   ___  &kp INS   &kp PG_UP &kp UP    &kp PG_DN &none     &kp TAB
+	&trans      &sk LM1       &sk LM2   &sk LM3   &sk LM4    &kp DEL  ___  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &kp SPACE
+	&trans      &kp LC(Z)     &kp LC(X) &kp LC(C) &kp LC(V)  &kp RET  ___  &unstick  &sk RCTRL &sk RSHFT &sk RALT  &sk RGUI  &kp RS(TAB)
+	&trans      &trans        &trans                                  ___  &kp RET   &kp SPACE &kp TAB
 			>;
 		};
 
 // Numbers on the left, because of mouse on the right hand
 // -----------------------------------------------------------------------------------------
-// | ~   | +   | 7   | 8   | 9   | %   |   | ^   | #   | {   | }   | -   | _   |
-// |     | 0   | 4   | 5   | 6   | .   |   | `   | $   | (   | )   | |   | "   |
+// | `   | +   | 7   | 8   | 9   | %   |   | ^   | #   | {   | }   | -   | _   |
+// |     | 0   | 4   | 5   | 6   | .   |   | ~   | $   | (   | )   | |   | "   |
 // | €   | =   | 1   | 2   | 3   | !   |   | \   | &   | [   | ]   | /   | *   |
 // -----------------------------------------------------------------------------------------
 		number_layer {
 			bindings = <
-	&kp TILDE  &kp PLUS   &kp N7     &lm RALT N8 &kp N9     &kp PRCNT     &kp CARET &kp HASH       &kp LBRC     &rm RALT RBRC &kp MINUS    &kp UNDER
-	&trans     &lm LM1 N0 &lm LM2 N4 &lm LM3 N5  &lm LM4 N6 &kp DOT       &kp GRAVE &rm RM1 DOLLAR &rm RM2 LPAR &rm RM3 RPAR  &rm RM4 PIPE &kp DQT
-	&kp RA(N5) &kp EQUAL  &kp N1     &kp N2      &kp N3     &kp EXCL      &kp BSLH  &kp AMPS       &kp LBKT     &kp RBKT      &trans       &kp STAR
-	&trans     &kp SPACE  &comma_space                                    &comma_space  &kp SPACE  &trans
+	&kp GRAVE  &kp PLUS   &kp N7     &lm RALT N8 &kp N9     &kp PRCNT  ___  &kp CARET &kp HASH       &kp LBRC     &rm RALT RBRC &kp MINUS    &kp UNDER
+	&trans     &lm LM1 N0 &lm LM2 N4 &lm LM3 N5  &lm LM4 N6 &kp DOT    ___  &kp TILDE &rm RM1 DOLLAR &rm RM2 LPAR &rm RM3 RPAR  &rm RM4 PIPE &kp DQT
+	&kp RA(N5) &kp EQUAL  &kp N1     &kp N2      &kp N3     &kp EXCL   ___  &kp BSLH  &kp AMPS       &kp LBKT     &kp RBKT      &trans       &kp STAR
+	&kp DOT    &kp SPACE  &comma_space                                 ___  &comma_space  &kp SPACE  &trans
 			>;
 		};
 
 		function_layer {
 			bindings = <
-	&kp C_VOL_UP &kp C_MUTE   &kp C_PREV   &kp C_PLAY_PAUSE &kp C_NEXT   &kp PSCRN        &none    &kp F7 &kp F8 &kp F9 &kp F12 &none
-	&kp C_VOL_DN &kp LM1      &kp LM2      &kp LM3          &kp LM4      &out OUT_TOG     &none    &kp F4 &kp F5 &kp F6 &kp F11 &none
-	&none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3 &bt BT_CLR       &unstick &kp F1 &kp F2 &kp F3 &kp F10 &none
-	&trans       &trans       &trans                                                      &trans   &trans &trans
+	&kp C_VOL_UP &kp C_MUTE   &kp C_PREV   &kp C_PLAY_PAUSE &kp C_NEXT   &kp PSCRN     ___  &none    &kp F7 &kp F8 &kp F9 &kp F12 &none
+	&kp C_VOL_DN &kp LM1      &kp LM2      &kp LM3          &kp LM4      &out OUT_TOG  ___  &none    &kp F4 &kp F5 &kp F6 &kp F11 &none
+	&none        &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3 &bt BT_CLR    ___  &unstick &kp F1 &kp F2 &kp F3 &kp F10 &none
+	&trans       &trans       &trans                                                   ___  &trans   &trans &trans
 			>;
 		};
 
 		keypad_layer {
 			bindings = <
-	&trans    &trans    &trans  &trans  &trans  &trans       &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
-	&trans    &kp LSHFT &trans  &trans  &trans  &trans       &none       &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MULTIPLY
-	&trans    &trans    &trans  &trans  &trans  &trans       &none       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT   &kp KP_ENTER
-	&kp LCTRL &kp SPACE &kp LALT                             &kp LALT    &kp KP_N0  &trans
+	&trans    &trans    &trans  &trans  &trans  &trans  ___  &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
+	&trans    &kp LSHFT &trans  &trans  &trans  &trans  ___  &none       &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MULTIPLY
+	&trans    &trans    &trans  &trans  &trans  &trans  ___  &none       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT   &kp KP_ENTER
+	&kp LCTRL &kp SPACE &kp LALT                        ___  &kp LALT    &kp KP_N0  &trans
 			>;
 		};
 	};

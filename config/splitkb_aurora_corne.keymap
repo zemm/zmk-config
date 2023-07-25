@@ -101,6 +101,14 @@
 			quick-tap-ms = <250>;
 			bindings = <&nav_with_mod>, <&kp>;
 		};
+		// Tap dance
+		td_nav_kp: tap_dance_nav_keypad {
+			compatible = "zmk,behavior-tap-dance";
+			label = "TAP_DANCE_NAV_KEYPAD";
+			#binding-cells = <0>;
+			tapping-term-ms = <200>;
+			bindings = <&mo NAV>, <&mo KPD>;
+		};
 	};
 
 // -----------------------------------------------------------------------------------------
@@ -222,7 +230,7 @@
 	&kp TAB       &mnav LM1 Q &mnav LM2 W &mnav LM3 E &mnav LM4 R &mnav 0 T  ___  &mnum 0 Y    &mnum RM1 U &mnum RM2 I &mnum RM3 O &mnum RM4 P  &kp RA(Q)
 	&kp BSPC      &lm LM1 A   &lm LM2 S   &lm LM3 D   &lm LM4 F   &kp G      ___  &kp H        &rm RM1 J   &rm RM2 K   &rm RM3 L   &rm RM4 SEMI &kp SQT
 	&mt LSHFT ESC &kp Z       &kp X       &kp C       &kp V       &kp B      ___  &kp N        &kp M       &kp COMMA   &kp DOT     &kp FSLH     &mt RSHFT RA(P)
-	&lth NUM RET  &kp SPACE   &mo NAV                                        ___  &lth NAV RET &sl NUM     &key_repeat
+	&lth NUM RET  &kp SPACE   &td_nav_kp                                     ___  &lth NAV RET &sl NUM     &key_repeat
 			>;
 		};
 
@@ -270,10 +278,10 @@
 
 		keypad_layer {
 			bindings = <
-	&trans    &trans    &trans  &trans  &trans  &trans  ___  &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
-	&trans    &kp LSHFT &trans  &trans  &trans  &trans  ___  &none       &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MULTIPLY
-	&trans    &trans    &trans  &trans  &trans  &trans  ___  &none       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT   &kp KP_ENTER
-	&kp LCTRL &kp SPACE &kp LALT                        ___  &kp LALT    &kp KP_N0  &trans
+	&trans  &kp LALT   &kp PG_UP  &kp UP    &kp PG_DN  &trans   ___  &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
+	&trans  &kp LGUI   &kp LEFT   &kp DOWN  &kp RIGHT  &trans   ___  &none       &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_N0    &kp KP_MULTIPLY
+	&trans  &kp LCTRL  &kp COMMA  &kp SPACE &kp DOT    &kp RET  ___  &kp KP_DOT  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_PLUS  &kp KP_ENTER
+	&trans  &trans     &trans                                   ___  &kp KP_PLUS &kp KP_N0  &kp KP_DOT
 			>;
 		};
 	};

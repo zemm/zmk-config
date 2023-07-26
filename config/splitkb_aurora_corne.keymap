@@ -48,9 +48,9 @@
 			compatible = "zmk,behavior-hold-tap";
 			label = "LAYER_TAP";
 			#binding-cells = <2>;
-			flavor = "hold-preferred";
-			tapping-term-ms = <180>;
-			quick_tap_ms = <150>;
+			flavor = "tap-preferred";
+			tapping-term-ms = <300>;
+			quick_tap_ms = <250>;
 			bindings = <&mo>, <&kp>;
 		};
 		hm: homerow_mods {
@@ -178,17 +178,6 @@
 			#binding-cells = <0>;
 			bindings = <&kp LSHIFT &kp RSHIFT &kp LCTRL &kp RCTRL &kp LALT &kp RALT &kp LGUI &kp RGUI>;
 		};
-		ZMK_MACRO(comma_space, bindings = <&kp COMMA &kp SPACE>;)
-		ZMK_MACRO(arr_s_l, bindings = <&kp LS(COMMA) &kp MINUS>;)
-		ZMK_MACRO(arr_s_r, bindings = <&kp MINUS &kp LS(DOT)>;)
-		ZMK_MACRO(arr_d_l, bindings = <&kp LS(COMMA) &kp EQUAL>;)
-		ZMK_MACRO(arr_d_r, bindings = <&kp EQUAL &kp LS(DOT)>;)
-		ZMK_MACRO(arr_p_l, bindings = <&kp LS(COMMA) &kp PIPE>;)
-		ZMK_MACRO(arr_p_r, bindings = <&kp PIPE &kp LS(DOT)>;)
-		ZMK_MACRO(eoblock, bindings = <&kp RBRC &kp SEMI &kp RET>;)
-		ZMK_MACRO(sp_eq_sp, bindings = <&kp SPACE &kp EQUAL &kp SPACE>;)
-		ZMK_MACRO(sp_neq_sp, bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;)
-		// @TODO: how to do this with ZMK_MACRO1?
 		ZMK_MACRO1(nav_with_mod,
 			wait-ms = <0>;
 			bindings
@@ -213,6 +202,22 @@
 				, <&macro_release &mo NUM>
 			;
 		)
+		// String macros
+		ZMK_MACRO(comma_space, bindings = <&kp COMMA &kp SPACE>;)
+		ZMK_MACRO(arrow_slim_l, bindings = <&kp LS(COMMA) &kp MINUS>;)
+		ZMK_MACRO(arrow_slim_r, bindings = <&kp MINUS &kp LS(DOT)>;)
+		ZMK_MACRO(arrow_fat_l, bindings = <&kp LS(COMMA) &kp EQUAL>;)
+		ZMK_MACRO(arrow_fat_r, bindings = <&kp EQUAL &kp LS(DOT)>;)
+		ZMK_MACRO(arrow_pipe_l, bindings = <&kp LS(COMMA) &kp PIPE>;)
+		ZMK_MACRO(arrow_pipe_r, bindings = <&kp PIPE &kp LS(DOT)>;)
+		ZMK_MACRO(block_start, bindings = <&kp SPACE &kp LBRC &kp RET>;)
+		ZMK_MACRO(block_end, bindings = <&kp RBRC &kp P &kp RET>;)
+		ZMK_MACRO(eq_spaced, bindings = <&kp SPACE &kp EQUAL &kp SPACE>;)
+		ZMK_MACRO(neq_spaced, bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;)
+		ZMK_MACRO(eq_dqt, bindings = <&kp EQUAL &kp DQT>;)
+		ZMK_MACRO(neq_dqt, bindings = <&kp EXCL &kp EQUAL &kp DQT>;)
+		ZMK_MACRO(eq_dqt_spaced, bindings = <&kp SPACE &kp EQUAL &kp SPACE &kp DQT>;)
+		ZMK_MACRO(neq_dqt_spaced, bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE &kp DQT>;)
 	};
 
 	keymap {
@@ -228,17 +233,17 @@
 			bindings = <
 	&kp TAB       &mnav LM1 Q &mnav LM2 W &mnav LM3 E &mnav LM4 R &mnav 0 T  ___  &mnum 0 Y    &mnum RM1 U &mnum RM2 I &mnum RM3 O &mnum RM4 P  &kp MINUS
 	&kp BSPC      &lm LM1 A   &lm LM2 S   &lm LM3 D   &lm LM4 F   &ltt MAC G ___  &ltt MAC H   &rm RM1 J   &rm RM2 K   &rm RM3 L   &rm RM4 SEMI &kp SQT
-	&mt LSHFT ESC &mnav 0 Z   &kp X       &kp C       &kp V       &kp B      ___  &kp N        &kp M       &kp COMMA   &kp DOT     &mnum 0 FSLH &mt RSHFT PIPE
+	&mt LSHFT ESC &mnav 0 Z   &kp X       &kp C       &kp V       &kp B      ___  &kp N        &kp M       &kp COMMA   &kp DOT     &mnum 0 FSLH &mt RSHFT UNDER
 	&lth NUM RET  &kp SPACE   &td_nav_kp                                     ___  &lth NAV RET &sl NUM     &key_repeat
 			>;
 		};
 
 		macro_layer {
 			bindings = <
-	&none  &none  &none  &none  &none  &none  ___  &none    &none    &arr_p_l &arr_p_r &eoblock   &none
-	&none  &none  &none  &none  &none  &none  ___  &none    &none    &arr_s_l &arr_s_r &sp_eq_sp  &none
-	&none  &none  &none  &none  &none  &none  ___  &none    &none    &arr_d_l &arr_d_r &sp_neq_sp &none
-	&none  &none  &none                       ___  &none    &none    &none
+	&none  &none  &none  &none  &none  &none  ___  &arrow_pipe_l  &arrow_pipe_r  &block_start   &block_end     &neq_spaced      &eq_spaced
+	&none  &none  &none  &none  &none  &none  ___  &arrow_slim_l  &arrow_slim_r  &none          &none          &neq_dqt         &eq_dqt
+	&none  &none  &none  &none  &none  &none  ___  &arrow_fat_l   &arrow_fat_r   &none          &none          &neq_dqt_spaced  &eq_dqt_spaced
+	&none  &none  &none                       ___  &none          &none          &none
 				>;
 		};
 
@@ -253,16 +258,16 @@
 
 // Numbers on the left, because of mouse on the right hand
 // -----------------------------------------------------------------------------------------
-// | `   | 1   | 2   | 3   | 4   | 5   |   | ^   | #   | {   | }   | ä   | _   |
-// |     | 6   | 7   | 8   | 9   | 0   |   | &   | $   | (   | )   | ö   | "   |
-// | €   | .   | -   | +   | =   | \   |   | ~   | |   | [   | ]   | /   | *   |
+// | `   | 1   | 2   | 3   | 4   | 5   |   | ^   | #   | {   | }   | :   | =   |
+// |     | 6   | 7   | 8   | 9   | 0   |   | &   | $   | (   | )   | ä   | "   |
+// | €   | \   | -   | +   | *   | .   |   | ~   | |   | [   | ]   | ö   | _   |
 // -----------------------------------------------------------------------------------------
 		number_layer {
 			bindings = <
-	&kp GRAVE        &kp N1     &kp N2     &lm RALT N3 &kp N4     &kp N5    ___  &kp CARET &kp HASH       &kp LBRC     &rm RALT RBRC &kp RA(Q)     &kp UNDER
-	&trans           &lm LM1 N6 &lm LM2 N7 &lm LM3 N8  &lm LM4 N9 &kp N0    ___  &kp AMPS  &rm RM1 DOLLAR &rm RM2 LPAR &rm RM3 RPAR  &rm RM4 RA(P) &kp DQT
-	&mt LSHFT RA(N5) &kp DOT    &kp MINUS  &kp PLUS    &kp EQUAL  &kp BSLH  ___  &kp TILDE &kp PIPE       &kp LBKT     &kp RBKT      &kp FSLH      &mt RSHFT STAR
-	&comma_space     &kp SPACE  &kp DOT                                     ___  &comma_space  &kp SPACE  &trans
+	&kp GRAVE        &kp N1     &kp N2     &lm RALT N3 &kp N4     &kp N5   ___  &kp CARET &kp HASH       &kp LBRC     &rm RALT RBRC &kp RS(SEMI)  &kp EQUAL
+	&trans           &lm LM1 N6 &lm LM2 N7 &lm LM3 N8  &lm LM4 N9 &kp N0   ___  &kp AMPS  &rm RM1 DOLLAR &rm RM2 LPAR &rm RM3 RPAR  &rm RM4 RA(Q) &kp DQT
+	&mt LSHFT RA(N5) &kp BSLH   &kp MINUS  &kp PLUS    &kp STAR   &kp DOT  ___  &kp TILDE &kp PIPE       &kp LBKT     &kp RBKT      &kp RA(P)     &mt RSHFT UNDER
+	&comma_space     &kp SPACE  &kp DOT                                    ___  &comma_space  &kp SPACE  &trans
 			>;
 		};
 

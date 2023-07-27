@@ -109,6 +109,13 @@
 			tapping-term-ms = <200>;
 			bindings = <&mo NAV>, <&mo KPD>;
 		};
+		//td_comma_commaspace: tap_dance_comma_commaspace {
+		//	compatible = "zmk,behaviour-tap-dance";
+		//	label = "TAP_DANCE_COMMA_COMMASPACE";
+		//	#binding-cells = <0>;
+		//	tapping-term-ms = <200>;
+		//	bingings = <&mo COMMA>, <&comma_space>;
+		//};
 	};
 
 // -----------------------------------------------------------------------------------------
@@ -216,8 +223,8 @@
 		ZMK_MACRO(neq_spaced, bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;)
 		ZMK_MACRO(eq_dqt, bindings = <&kp EQUAL &kp DQT>;)
 		ZMK_MACRO(neq_dqt, bindings = <&kp EXCL &kp EQUAL &kp DQT>;)
-		ZMK_MACRO(eq_dqt_spaced, bindings = <&kp SPACE &kp EQUAL &kp SPACE &kp DQT>;)
-		ZMK_MACRO(neq_dqt_spaced, bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE &kp DQT>;)
+		ZMK_MACRO(le_spaced, bindings = <&kp SPACE &kp RS(COMMA) &kp EQUAL &kp SPACE>;)
+		ZMK_MACRO(ge_spaced, bindings = <&kp SPACE &kp RS(DOT) &kp EQUAL &kp SPACE>;)
 	};
 
 	keymap {
@@ -231,43 +238,43 @@
 // -----------------------------------------------------------------------------------------
 		default_layer {
 			bindings = <
-	&kp TAB       &mnav LM1 Q &mnav LM2 W &mnav LM3 E &mnav LM4 R &mnav 0 T  ___  &mnum 0 Y    &mnum RM1 U &mnum RM2 I &mnum RM3 O &mnum RM4 P  &kp MINUS
-	&kp BSPC      &lm LM1 A   &lm LM2 S   &lm LM3 D   &lm LM4 F   &ltt MAC G ___  &ltt MAC H   &rm RM1 J   &rm RM2 K   &rm RM3 L   &rm RM4 SEMI &kp SQT
-	&mt LSHFT ESC &mnav 0 Z   &kp X       &kp C       &kp V       &kp B      ___  &kp N        &kp M       &kp COMMA   &kp DOT     &mnum 0 FSLH &mt RSHFT UNDER
-	&lth NUM RET  &kp SPACE   &td_nav_kp                                     ___  &lth NAV RET &sl NUM     &key_repeat
+	&kp TAB       &mnav LM1 Q  &mnav LM2 W &mnav LM3 E &mnav LM4 R &mnav 0 T  ___  &mnum 0 Y    &mnum RM1 U &mnum RM2 I &mnum RM3 O  &mnum RM4 P     &kp RA(P)
+	&kp BSPC      &lm LM1 A    &lm LM2 S   &lm LM3 D   &lm LM4 F   &ltt MAC G ___  &ltt MAC H   &rm RM1 J   &rm RM2 K   &rm RM3 L    &rm RM4 SEMI    &kp RA(Q)
+	&mt LSHFT ESC &mnav RALT Z &lm RALT X  &kp C       &kp V       &kp B      ___  &kp N        &kp M       &kp COMMA   &rm RALT DOT &mnum RALT FSLH &kp RSHFT
+	&lth NUM RET  &kp SPACE    &td_nav_kp                                     ___  &lth NAV RET &sl NUM     &key_repeat
 			>;
 		};
 
 		macro_layer {
 			bindings = <
-	&none  &none  &none  &none  &none  &none  ___  &arrow_pipe_l  &arrow_pipe_r  &block_start   &block_end     &neq_spaced      &eq_spaced
-	&none  &none  &none  &none  &none  &none  ___  &arrow_slim_l  &arrow_slim_r  &none          &none          &neq_dqt         &eq_dqt
-	&none  &none  &none  &none  &none  &none  ___  &arrow_fat_l   &arrow_fat_r   &none          &none          &neq_dqt_spaced  &eq_dqt_spaced
-	&none  &none  &none                       ___  &none          &none          &none
+	&none  &none  &none  &none       &none  &none  ___  &arrow_pipe_l  &arrow_pipe_r  &block_start  &block_end  &neq_spaced  &eq_spaced
+	&none  &none  &none  &caps_word  &none  &none  ___  &arrow_fat_l   &arrow_fat_r   &caps_word    &none       &le_spaced   &ge_spaced
+	&none  &none  &none  &none       &none  &none  ___  &arrow_slim_l  &arrow_slim_r  &none         &none       &none        &none
+	&none  &none  &none                            ___  &none          &none          &none
 				>;
 		};
 
 		navigation_layer {
 			bindings = <
-	&trans      &kp LC(LS(Z)) &kp LC(S) &kp LC(E) &kp RALT   &kp F4   ___  &kp INS   &kp PG_UP &kp UP    &kp PG_DN &none     &kp TAB
+	&trans      &kp LC(LS(Z)) &kp LC(S) &kp LC(E) &kp F2     &kp F4   ___  &kp INS   &kp PG_UP &kp UP    &kp PG_DN &kp HASH  &kp TAB
 	&trans      &sk LM1       &sk LM2   &sk LM3   &sk LM4    &kp DEL  ___  &kp HOME  &kp LEFT  &kp DOWN  &kp RIGHT &kp END   &kp SPACE
-	&trans      &kp LC(Z)     &kp LC(X) &kp LC(C) &kp LC(V)  &kp RET  ___  &unstick  &sk RCTRL &sk RSHFT &sk RALT  &sk RGUI  &kp RS(TAB)
-	&trans      &trans        &trans                                  ___  &kp RET   &kp SPACE &kp TAB
+	&trans      &kp LC(Z)     &kp LC(X) &kp LC(C) &kp LC(V)  &kp RET  ___  &none     &none     &none     &sk RALT  &kp FSLH  &kp RS(TAB)
+	&trans      &trans        &trans                                  ___  &kp RET   &lth NUM SPACE  &trans
 			>;
 		};
 
 // Numbers on the left, because of mouse on the right hand
 // -----------------------------------------------------------------------------------------
-// | `   | 1   | 2   | 3   | 4   | 5   |   | ^   | #   | {   | }   | :   | =   |
-// |     | 6   | 7   | 8   | 9   | 0   |   | &   | $   | (   | )   | ä   | "   |
-// | €   | \   | -   | +   | *   | .   |   | ~   | |   | [   | ]   | ö   | _   |
+// | `   | 1   | 2   | 3   | 4   | 5   |   | &   | $   | {   | }   | :   | =   |
+// |     | 6   | 7   | 8   | 9   | 0   |   | #   | -   | (   | )   | '   | "   |
+// | €   | *   | +   | [   | ]   | \   |   | ~   | _   | <   | >   | |   | %   |
 // -----------------------------------------------------------------------------------------
 		number_layer {
 			bindings = <
-	&kp GRAVE        &kp N1     &kp N2     &lm RALT N3 &kp N4     &kp N5   ___  &kp CARET &kp HASH       &kp LBRC     &rm RALT RBRC &kp RS(SEMI)  &kp EQUAL
-	&trans           &lm LM1 N6 &lm LM2 N7 &lm LM3 N8  &lm LM4 N9 &kp N0   ___  &kp AMPS  &rm RM1 DOLLAR &rm RM2 LPAR &rm RM3 RPAR  &rm RM4 RA(Q) &kp DQT
-	&mt LSHFT RA(N5) &kp BSLH   &kp MINUS  &kp PLUS    &kp STAR   &kp DOT  ___  &kp TILDE &kp PIPE       &kp LBKT     &kp RBKT      &kp RA(P)     &mt RSHFT UNDER
-	&comma_space     &kp SPACE  &kp DOT                                    ___  &comma_space  &kp SPACE  &trans
+	&kp GRAVE       &kp N1     &kp N2        &kp N3     &kp N4     &kp N5    ___  &kp AMPS  &kp DOLLAR    &kp LBRC      &kp RBRC         &kp RS(P)   &kp EQUAL
+	&trans          &lm LM1 N6 &lm LM2 N7    &lm LM3 N8 &lm LM4 N9 &kp N0    ___  &kp HASH  &rm RM1 MINUS &rm RM2 LPAR  &rm RM3 RPAR     &rm RM4 SQT &kp DQT
+	&mt LSHFT PRCNT &kp STAR   &lm RALT PLUS &kp LBKT   &kp RBKT   &kp BSLH  ___  &kp TILDE &kp UNDER     &kp RS(COMMA) &rm RALT RS(DOT) &kp PIPE    &mt RSHFT EXCL
+	&comma_space    &kp SPACE  &kp DOT                                       ___  &comma_space  &kp SPACE &trans
 			>;
 		};
 
@@ -282,9 +289,9 @@
 
 		keypad_layer {
 			bindings = <
-	&trans  &kp LALT   &kp PG_UP  &kp UP    &kp PG_DN  &trans   ___  &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
-	&trans  &kp LGUI   &kp LEFT   &kp DOWN  &kp RIGHT  &trans   ___  &none       &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_N0    &kp KP_MULTIPLY
-	&trans  &kp LCTRL  &kp COMMA  &kp SPACE &kp DOT    &kp RET  ___  &kp KP_DOT  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_PLUS  &kp KP_ENTER
+	&trans  &kp LALT   &kp PG_UP  &kp UP    &kp PG_DN  &none    ___  &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
+	&trans  &kp LCTRL  &kp LEFT   &kp DOWN  &kp RIGHT  &none    ___  &none       &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_N0    &kp KP_MULTIPLY
+	&trans  &kp LGUI   &kp COMMA  &kp SPACE &kp DOT    &kp RET  ___  &kp KP_DOT  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_PLUS  &kp KP_ENTER
 	&trans  &trans     &trans                                   ___  &kp KP_PLUS &kp KP_N0  &kp KP_DOT
 			>;
 		};

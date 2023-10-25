@@ -5,32 +5,20 @@ SOURCES_TAIPO = $(wildcard config-taipo/*)
 
 build: build-left build-right
 
-build-left: build/aurora-corne-left.uf2
-build-right: build/aurora-corne-right.uf2
+build-left: build/splitkb_aurora_corne_left.uf2
+build-right: build/splitkb_aurora_corne_right.uf2
 
-build/aurora-corne-left.uf2: $(SOURCES)
-	rm -f build/aurora-corne-left.uf2
+build/%.uf2: $(SOURCES)
+	rm -f build/$*.uf2
 	west build \
 		$(WEST_ARGS) \
 		-s /workspaces/zmk/app \
-		-d build/left \
+		-d build/$* \
 		-b nice_nano_v2 \
 		-- \
 		-DZMK_CONFIG="/workspaces/zmk-config/config" \
-		-DSHIELD=splitkb_aurora_corne_left
-	cp build/left/zephyr/zmk.uf2 build/aurora-corne-left.uf2
-
-build/aurora-corne-right.uf2: $(SOURCES)
-	rm -f build/aurora-corne-right.uf2
-	west build \
-		$(WEST_ARGS) \
-		-s /workspaces/zmk/app \
-		-d build/right \
-		-b nice_nano_v2 \
-		-- \
-		-DZMK_CONFIG="/workspaces/zmk-config/config" \
-		-DSHIELD=splitkb_aurora_corne_right
-	cp build/right/zephyr/zmk.uf2 build/aurora-corne-right.uf2
+		-DSHIELD=$*
+	cp build/$*/zephyr/zmk.uf2 build/$*.uf2
 
 clean:
 	rm -fr build/*.uf2

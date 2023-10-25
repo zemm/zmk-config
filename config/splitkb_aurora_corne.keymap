@@ -241,10 +241,10 @@
 // -----------------------------------------------------------------------------------------
 		default_layer {
 			bindings = <
-	&kp TAB       &mnav LM1 Q  &mnav LM2 W &mnav LM3 E &mnav LM4 R &mnav 0 T  ___  &mnum 0 Y    &mnum RM1 U &mnum RM2 I &mnum RM3 O  &mnum RM4 P     &kp RA(P)
-	&kp BSPC      &lm LM1 A    &lm LM2 S   &lm LM3 D   &lm LM4 F   &ltt MAC G ___  &ltt MAC H   &rm RM1 J   &rm RM2 K   &rm RM3 L    &rm RM4 SEMI    &kp RA(Q)
-	&mt LSHFT ESC &mnav RALT Z &lm RALT X  &kp C       &kp V       &kp B      ___  &kp N        &kp M       &kp COMMA   &rm RALT DOT &mnum RALT FSLH &kp RSHFT
-	&lth NUM RET  &kp SPACE    &td_nav_kp                                     ___  &lth NAV RET &sl NUM     &mo FUN
+	&kp TAB        &mnav LM1 Q  &mnav LM2 W &mnav LM3 E &mnav LM4 R &mnav RALT T ___  &mnum RALT Y &mnum RM1 U &mnum RM2 I   &mnum RM3 O  &mnum RM4 P   &kp RA(P)
+	&kp BSPC       &lm LM1 A    &lm LM2 S   &lm LM3 D   &lm LM4 F   &lm RALT G   ___  &rm RALT H   &rm RM1 J   &rm RM2 K     &rm RM3 L    &rm RM4 SEMI  &kp RA(Q)
+	&mt LSHFT ESC  &kp Z        &kp X       &mnav 0 C   &kp V       &ltt MAC B   ___  &ltt MAC N   &kp M       &mnum 0 COMMA &kp DOT      &kp FSLH      &kp RSHFT
+	&lth NUM RET   &kp SPACE    &td_nav_kp                                       ___  &lth NAV RET &sl NUM     &mo FUN
 			>;
 		};
 

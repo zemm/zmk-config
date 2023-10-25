@@ -219,8 +219,12 @@
 		ZMK_MACRO(arrow_fat_r, bindings = <&kp EQUAL &kp LS(DOT)>;)
 		ZMK_MACRO(arrow_pipe_l, bindings = <&kp LS(COMMA) &kp PIPE>;)
 		ZMK_MACRO(arrow_pipe_r, bindings = <&kp PIPE &kp LS(DOT)>;)
-		ZMK_MACRO(block_start, bindings = <&kp SPACE &kp LBRC &kp RET>;)
-		ZMK_MACRO(block_end, bindings = <&kp RBRC &kp P &kp RET>;)
+		ZMK_MACRO(block_brc_start, bindings = <&kp SPACE &kp LBRC &kp RET>;)
+		ZMK_MACRO(block_brc_end, bindings = <&kp RBRC &kp P &kp RET>;)
+		ZMK_MACRO(block_par_start, bindings = <&kp SPACE &kp LPAR &kp RET>;)
+		ZMK_MACRO(block_par_end, bindings = <&kp RPAR &kp P &kp RET>;)
+		ZMK_MACRO(block_bkt_start, bindings = <&kp SPACE &kp LBKT &kp RET>;)
+		ZMK_MACRO(block_bkt_end, bindings = <&kp RBKT &kp P &kp RET>;)
 		ZMK_MACRO(eq_spaced, bindings = <&kp SPACE &kp EQUAL &kp SPACE>;)
 		ZMK_MACRO(neq_spaced, bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;)
 		ZMK_MACRO(eq_dqt, bindings = <&kp EQUAL &kp DQT>;)
@@ -242,17 +246,17 @@
 			bindings = <
 	&kp TAB        &mnav LM1 Q  &mnav LM2 W &mnav LM3 E &mnav LM4 R &mnav RALT T ___  &mnum RALT Y &mnum RM1 U &mnum RM2 I   &mnum RM3 O  &mnum RM4 RA(Q) &kp RA(P)
 	&kp BSPC       &lm LM1 A    &lm LM2 S   &lm LM3 D   &lm LM4 F   &lm RALT G   ___  &rm RALT H   &rm RM1 J   &rm RM2 K     &rm RM3 L    &rm RM4 SEMI    &kp SQT
-	&mt LSHFT ESC  &kp Z        &kp X       &mnav 0 C   &kp V       &ltt MAC B   ___  &ltt MAC N   &kp M       &mnum 0 COMMA &kp DOT      &kp FSLH        &kp RSHFT
+	&mt LSHFT ESC  &kp Z        &kp X       &mnav 0 C   &ltt MAC V  &kp B        ___  &kp N        &ltt MAC M  &mnum 0 COMMA &kp DOT      &kp FSLH        &mt RSHFT P
 	&lth NUM RET   &kp SPACE    &td_nav_kp                                       ___  &lth NAV RET &sl NUM     &mo FUN
 			>;
 		};
 
 		macro_layer {
 			bindings = <
-	&trans  &none  &none  &none  &arrow_pipe_l  &none  ___  &none   &arrow_fat_r   &block_start  &block_end  &none        &eq_spaced
-	&trans  &none  &none  &none  &arrow_fat_l   &none  ___  &none   &arrow_pipe_r  &none         &none       &none        &neq_spaced
-	&trans  &none  &none  &none  &arrow_slim_l  &none  ___  &none   &arrow_slim_r  &le_spaced    &ge_spaced  &none        &none
-	&none   &none  &none                               ___  &none   &none          &none
+	&trans  &none  &none  &arrow_pipe_l  &arrow_fat_r   &none  ___  &none  &none  &block_brc_start  &block_brc_end  &le_spaced  &eq_spaced
+	&trans  &none  &none  &arrow_fat_l   &arrow_pipe_r  &none  ___  &none  &none  &block_par_start  &block_par_end  &ge_spaced  &neq_spaced
+	&trans  &none  &none  &arrow_slim_l  &arrow_slim_r  &none  ___  &none  &none  &block_bkt_start  &block_bkt_end  &none       &none
+	&none   &none  &none                                       ___  &none  &none  &none
 			>;
 		};
 
@@ -267,15 +271,15 @@
 
 // Numbers on the left, because of mouse on the right hand
 // -----------------------------------------------------------------------------------------
-// | `   | 1   | 2   | 3   | 4   | 5   |   | &   | $   | {   | }   | :   | =   |
-// |     | 6   | 7   | 8   | 9   | 0   |   | #   | -   | (   | )   | '   | "   |
+// | `   | 1   | 2   | 3   | 4   | 5   |   | &   | $   | {   | }   | ;   | =   |
+// |     | 6   | 7   | 8   | 9   | 0   |   | #   | -   | (   | )   | :   | "   |
 // | €   | -   | +   | %   | *   | \   |   | ~   | _   | [   | ]   | |   | !   |
 // -----------------------------------------------------------------------------------------
 		number_layer {
 			bindings = <
-	&kp GRAVE      &kp N1     &kp N2      &kp N3     &kp N4     &kp N5    ___  &kp AMPS  &kp DOLLAR    &kp LBRC     &kp RBRC      &kp RS(P)   &kp EQUAL
-	&trans         &lm LM1 N6 &lm LM2 N7  &lm LM3 N8 &lm LM4 N9 &kp N0    ___  &kp HASH  &rm RM1 MINUS &rm RM2 LPAR &rm RM3 RPAR  &rm RM4 SQT &kp DQT
-	&mt LSHFT EURO &kp MINUS  &kp PLUS    &kp PRCNT  &kp STAR   &kp BSLH  ___  &kp TILDE &kp UNDER     &kp LBKT     &rm RALT RBKT &kp PIPE    &mt RSHFT EXCL
+	&kp GRAVE      &kp N1     &kp N2      &kp N3     &kp N4     &kp N5    ___  &kp AMPS  &kp DOLLAR    &kp LBRC     &kp RBRC      &kp P         &kp EQUAL
+	&trans         &lm LM1 N6 &lm LM2 N7  &lm LM3 N8 &lm LM4 N9 &kp N0    ___  &kp HASH  &rm RM1 MINUS &rm RM2 LPAR &rm RM3 RPAR  &rm RM4 RS(P) &kp DQT
+	&mt LSHFT EURO &kp MINUS  &kp PLUS    &kp PRCNT  &kp STAR   &kp BSLH  ___  &kp TILDE &kp UNDER     &kp LBKT     &rm RALT RBKT &kp PIPE      &mt RSHFT EXCL
 	&kp SPACE      &kp COMMA  &kp DOT                                     ___  &comma_space  &kp SPACE &trans
 			>;
 		};

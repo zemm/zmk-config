@@ -268,10 +268,10 @@
 
 		navigation_layer {
 			bindings = <
-	&trans      &sk LM1       &sk LM2    &sk LM3   &sk LM4    &kp F4   ___  &kp INS   &kp PG_UP  &kp UP     &kp PG_DN  &none    &kp ESC
-	&trans      &kp LC(LS(Z)) &kp FSLH   &kp HASH  &kp SPACE  &kp DEL  ___  &sk RALT  &kp LEFT   &kp DOWN   &kp RIGHT  &none    &none
-	&trans      &kp LC(Z)     &kp LC(X)  &kp LC(C) &kp LC(V)  &kp RET  ___  &tog NAV  &kp HOME   &kp SPACE  &kp END    &none    &none
-	&trans      &trans        &to DEF                                  ___  &trans    &trans     &to DEF
+	&trans      &sk LM1     &sk LM2    &sk LM3   &sk LM4    &kp F4   ___  &kp INS   &kp PG_UP  &kp UP     &kp PG_DN  &none    &kp ESC
+	&trans      &kp FSLH    &kp STAR   &kp HASH  &kp SPACE  &kp DEL  ___  &sk RALT  &kp LEFT   &kp DOWN   &kp RIGHT  &none    &none
+	&trans      &kp LC(Z)   &kp LC(X)  &kp LC(C) &kp LC(V)  &kp RET  ___  &tog NAV  &kp HOME   &kp SPACE  &kp END    &none    &none
+	&trans      &trans      &to DEF                                  ___  &trans    &trans     &to DEF
 			>;
 		};
 

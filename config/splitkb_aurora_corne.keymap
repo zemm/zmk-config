@@ -10,9 +10,9 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEF 0
-#define MAC 1
+#define NUM 1
 #define NAV 2
-#define NUM 3
+#define MAC 3
 #define FUN 4
 #define KPD 5
 
@@ -251,12 +251,18 @@
 			>;
 		};
 
-		macro_layer {
+// Numbers on the left, because of mouse on the right hand
+// -----------------------------------------------------------------------------------------
+// | `   | 1   | 2   | 3   | 4   | 5   |   | &   | $   | {   | }   | ;   | =   |
+// |     | 6   | 7   | 8   | 9   | 0   |   | #   | -   | (   | )   | "   | '   |
+// | €   | -   | +   | ,   | .   | \   |   | ~   | _   | [   | ]   | /   | !   |
+// -----------------------------------------------------------------------------------------
+		number_layer {
 			bindings = <
-	&trans  &none  &none  &arrow_pipe_l  &arrow_fat_r   &none  ___  &none  &none  &block_brc_start  &block_brc_end  &le_spaced  &eq_spaced
-	&trans  &none  &none  &arrow_fat_l   &arrow_pipe_r  &none  ___  &none  &none  &block_par_start  &block_par_end  &ge_spaced  &neq_spaced
-	&trans  &none  &none  &arrow_slim_l  &arrow_slim_r  &none  ___  &none  &none  &block_bkt_start  &block_bkt_end  &none       &none
-	&none   &none  &none                                       ___  &none  &none  &none
+	&kp GRAVE      &kp N1     &kp N2      &kp N3     &kp N4     &kp N5    ___  &rm RALT AMPS &rm RM1 DOLLAR &rm RM2 LBRC &rm RM3 RBRC  &rm RM4 RS(P)  &kp EQUAL
+	&trans         &lm LM1 N6 &lm LM2 N7  &lm LM3 N8 &lm LM4 N9 &kp N0    ___  &kp HASH      &kp MINUS      &kp LPAR     &kp RPAR      &kp PIPE       &kp DQT
+	&mt LSHFT STAR &kp MINUS  &kp PLUS    &kp COMMA  &kp DOT    &kp BSLH  ___  &kp TILDE     &kp UNDER      &kp LBKT     &rm RALT RBKT &kp FSLH       &mt RSHFT EXCL
+	&trans         &trans     &trans                                      ___  &comma_space  &kp SPACE      &trans
 			>;
 		};
 
@@ -265,22 +271,16 @@
 	&trans      &kp LC(LS(Z)) &kp LC(S) &kp LC(E) &kp F2     &kp F4   ___  &kp INS   &kp PG_UP  &kp UP     &kp PG_DN  &kp FSLH   &tog NAV
 	&trans      &sk LM1       &sk LM2   &sk LM3   &sk LM4    &kp DEL  ___  &sk RALT  &kp LEFT   &kp DOWN   &kp RIGHT  &kp HASH   &none
 	&trans      &kp LC(Z)     &kp LC(X) &kp LC(C) &kp LC(V)  &kp RET  ___  &none     &kp HOME   &kp SPACE  &kp END    &kp SPACE  &none
-	&trans      &trans        &to DEF                                 ___  &to DEF   &trans     &trans
+	&trans      &trans        &to DEF                                 ___  &trans    &trans     &to DEF
 			>;
 		};
 
-// Numbers on the left, because of mouse on the right hand
-// -----------------------------------------------------------------------------------------
-// | `   | 1   | 2   | 3   | 4   | 5   |   | &   | $   | {   | }   | ;   | =   |
-// |     | 6   | 7   | 8   | 9   | 0   |   | #   | -   | (   | )   | ""   | '   |
-// | €   | -   | +   | %   | *   | \   |   | ~   | _   | [   | ]   | /   | !   |
-// -----------------------------------------------------------------------------------------
-		number_layer {
+		macro_layer {
 			bindings = <
-	&kp GRAVE      &kp N1     &kp N2      &kp N3     &kp N4     &kp N5    ___  &rm RALT AMPS &rm RM1 DOLLAR &rm RM2 LBRC &rm RM3 RBRC  &rm RM4 P  &kp EQUAL
-	&trans         &lm LM1 N6 &lm LM2 N7  &lm LM3 N8 &lm LM4 N9 &kp N0    ___  &kp HASH      &kp MINUS      &kp LPAR     &kp RPAR      &kp RS(P)  &kp SQT
-	&mt LSHFT EURO &kp MINUS  &kp PLUS    &kp PRCNT  &kp STAR   &kp BSLH  ___  &kp TILDE     &kp UNDER      &kp LBKT     &rm RALT RBKT &kp FSLH   &mt RSHFT EXCL
-	&kp SPACE      &kp COMMA  &kp DOT                                     ___  &comma_space  &kp SPACE &trans
+	&trans  &none  &none  &arrow_pipe_l  &arrow_fat_r   &none  ___  &none  &none  &block_brc_start  &block_brc_end  &le_spaced  &eq_spaced
+	&trans  &none  &none  &arrow_fat_l   &arrow_pipe_r  &none  ___  &none  &none  &block_par_start  &block_par_end  &ge_spaced  &neq_spaced
+	&trans  &none  &none  &arrow_slim_l  &arrow_slim_r  &none  ___  &none  &none  &block_bkt_start  &block_bkt_end  &none       &none
+	&none   &none  &none                                       ___  &none  &none  &none
 			>;
 		};
 

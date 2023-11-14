@@ -238,15 +238,15 @@
 
 // Colemak on OS side
 // -----------------------------------------------------------------------------------------
-// |     |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |     |     |
+// |     |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |     |
 // |     |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '  |
 // |     |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |     |
 // -----------------------------------------------------------------------------------------
 		default_layer {
 			bindings = <
-	&kp TAB        &mnav LM1 Q  &mnav LM2 W &mnav LM3 E &mnav LM4 R &mnav RALT T ___  &mnum RALT Y &mnum RM1 U &mnum RM2 I   &mnum RM3 O  &mnum RM4 RA(Q) &kp RA(P)
-	&kp BSPC       &lm LM1 A    &lm LM2 S   &lm LM3 D   &lm LM4 F   &lm RALT G   ___  &rm RALT H   &rm RM1 J   &rm RM2 K     &rm RM3 L    &rm RM4 SEMI    &kp SQT
-	&mt LSHFT ESC  &kp Z        &kp X       &mnav 0 C   &ltt MAC V  &kp B        ___  &kp N        &ltt MAC M  &mnum 0 COMMA &kp DOT      &kp FSLH        &mt RSHFT P
+	&kp TAB        &mnav LM1 Q  &mnav LM2 W &mnav LM3 E &mnav LM4 R &mnav RALT T ___  &mnum RALT Y &mnum RM1 U &mnum RM2 I   &mnum RM3 O  &mnum RM4 P   &kp RA(Q)
+	&kp BSPC       &lm LM1 A    &lm LM2 S   &lm LM3 D   &lm LM4 F   &lm RALT G   ___  &rm RALT H   &rm RM1 J   &rm RM2 K     &rm RM3 L    &rm RM4 SEMI  &kp SQT
+	&mt LSHFT ESC  &kp Z        &kp X       &mnav 0 C   &ltt MAC V  &kp B        ___  &kp N        &ltt MAC M  &mnum 0 COMMA &kp DOT      &kp FSLH      &mt RSHFT RA(P)
 	&lth NUM RET   &kp SPACE    &td_nav_kp                                       ___  &lth NAV RET &sl NUM     &mo FUN
 			>;
 		};
@@ -272,14 +272,14 @@
 // Numbers on the left, because of mouse on the right hand
 // -----------------------------------------------------------------------------------------
 // | `   | 1   | 2   | 3   | 4   | 5   |   | &   | $   | {   | }   | ;   | =   |
-// |     | 6   | 7   | 8   | 9   | 0   |   | #   | -   | (   | )   | :   | "   |
-// | €   | -   | +   | %   | *   | \   |   | ~   | _   | [   | ]   | |   | !   |
+// |     | 6   | 7   | 8   | 9   | 0   |   | #   | -   | (   | )   | ""   | '   |
+// | €   | -   | +   | %   | *   | \   |   | ~   | _   | [   | ]   | /   | !   |
 // -----------------------------------------------------------------------------------------
 		number_layer {
 			bindings = <
-	&kp GRAVE      &kp N1     &kp N2      &kp N3     &kp N4     &kp N5    ___  &kp AMPS  &kp DOLLAR    &kp LBRC     &kp RBRC      &kp P         &kp EQUAL
-	&trans         &lm LM1 N6 &lm LM2 N7  &lm LM3 N8 &lm LM4 N9 &kp N0    ___  &kp HASH  &rm RM1 MINUS &rm RM2 LPAR &rm RM3 RPAR  &rm RM4 RS(P) &kp DQT
-	&mt LSHFT EURO &kp MINUS  &kp PLUS    &kp PRCNT  &kp STAR   &kp BSLH  ___  &kp TILDE &kp UNDER     &kp LBKT     &rm RALT RBKT &kp PIPE      &mt RSHFT EXCL
+	&kp GRAVE      &kp N1     &kp N2      &kp N3     &kp N4     &kp N5    ___  &rm RALT AMPS &rm RM1 DOLLAR &rm RM2 LBRC &rm RM3 RBRC  &rm RM4 P  &kp EQUAL
+	&trans         &lm LM1 N6 &lm LM2 N7  &lm LM3 N8 &lm LM4 N9 &kp N0    ___  &kp HASH      &kp MINUS      &kp LPAR     &kp RPAR      &kp RS(P)  &kp SQT
+	&mt LSHFT EURO &kp MINUS  &kp PLUS    &kp PRCNT  &kp STAR   &kp BSLH  ___  &kp TILDE     &kp UNDER      &kp LBKT     &rm RALT RBKT &kp FSLH   &mt RSHFT EXCL
 	&kp SPACE      &kp COMMA  &kp DOT                                     ___  &comma_space  &kp SPACE &trans
 			>;
 		};

@@ -11,8 +11,9 @@ BOARD = nice_nano_v2
 
 .ONESHELL:
 
-build: corne
+FORCE:
 
+build: corne
 
 corne: corne-left corne-right
 
@@ -21,11 +22,10 @@ corne-left: build/splitkb_aurora_corne_left.uf2
 corne-right: BOARD=nice_nano_v2
 corne-right: build/splitkb_aurora_corne_right.uf2
 
-
 reviung41: BOARD=sparkfun_pro_micro_rp2040
 reviung41: build/reviung41.uf2
 
-build/%.uf2: $(SOURCES)
+build/%.uf2: $(SOURCES) FORCE
 	#cd $(ZMK_PATH)
 	mkdir -p build
 	rm -f build/$*.uf2

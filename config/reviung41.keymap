@@ -179,12 +179,13 @@
 // |     |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |  ,  |  .  |  /  |     |
 		alpha_layer {
 			bindings = <
-&kp TAB        &mn LM1 OC_Q &mn LM2 OC_W &mn LM3 OC_F &mn LM4 OC_P &mn RALT OC_G ___  &ms RALT OC_J &ms RM1 OC_L &ms RM2 OC_U &ms RM3 OC_Y &ms RM4 OC_O_UMLAUT &kp OC_A_UMLAUT
+&lt KPD TAB    &mn LM1 OC_Q &mn LM2 OC_W &mn LM3 OC_F &mn LM4 OC_P &mn RALT OC_G ___  &ms RALT OC_J &ms RM1 OC_L &ms RM2 OC_U &ms RM3 OC_Y &ms RM4 OC_O_UMLAUT &kp OC_A_UMLAUT
 &kp BSPC       &lm LM1 OC_A &lm LM2 OC_R &lm LM3 OC_S &lm LM4 OC_T &lm RALT OC_D ___  &rm RALT OC_H &rm RM1 OC_N &rm RM2 OC_E &rm RM3 OC_I &rm RM4 OC_O        &kp SQT
 &mt LSHFT ESC  &kp OC_Z     &kp OC_X     &mn 0 OC_C   &kp OC_V     &kp OC_B      ___  &kp OC_K      &kp OC_M     &ms 0 COMMA  &kp DOT      &kp FSLH            &mt RSHFT RET
 &lth KPD RET   &kp SPACE    &td_nav_kp   &sl SYM      &sym_with_mod RSHFT
 			>;
 		};
+//&lth KPD RET   &kp SPACE    &td_nav_kp   &sl SYM      &sym_with_mod RSHFT
 
 // Numbers on the left, because of mouse on the right hand
 // | `   | 1   | 2   | 3   | 4   | 5   |   | &   | $   | {   | }   | ;   | =   |
@@ -198,13 +199,13 @@
 &comma_spc     &kp SPACE  &kp DOT    &comma_spc &trans
 			>;
 		};
-
+		
 		navigation_layer {
 			bindings = <
-&trans   &lm LM1 FSLH &lm LM2 SPACE &lm LM3 HASH &lm LM4 SPACE &lm RALT F4  ___  &kp INS   &kp PG_UP  &kp UP     &kp PG_DN  &none    &kp ESC
-&trans   &sk LM1      &sk LM2       &sk LM3      &sk LM4       &lm RALT DEL ___  &sk RALT  &kp LEFT   &kp DOWN   &kp RIGHT  &none    &none
-&trans   &kp LC(Z)    &kp LC(X)     &kp LC(C)    &kp LC(V)     &kp RET      ___  &tog NAV  &kp HOME   &kp SPACE  &kp END    &kp FSLH &none
-&trans   &kp SPACE    &trans        &kp SPACE    &tog FUN
+&trans  &lm LM1 FSLH &lm LM2 SPACE &lm LM3 HASH &lm LM4 SPACE &lm RALT F4  ___  &kp INS   &kp PG_UP  &kp UP     &kp PG_DN  &none    &kp ESC
+&trans  &sk LM1      &sk LM2       &sk LM3      &sk LM4       &lm RALT DEL ___  &kp BSPC  &kp LEFT   &kp DOWN   &kp RIGHT  &none    &kp DEL
+&trans  &kp LC(Z)    &kp LC(X)     &kp LC(C)    &kp LC(V)     &kp RET      ___  &none     &kp HOME   &kp SPACE  &kp END    &kp FSLH &trans
+&trans  &kp SPACE    &trans        &kp SPACE    &tog FUN
 			>;
 		};
 

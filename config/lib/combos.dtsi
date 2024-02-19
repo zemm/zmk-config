@@ -1,0 +1,17 @@
+// Combo with a shorter timeout
+#define COMBO_S(NAME, BINDINGS, KEYPOS, LAYERS) \
+	combo_##NAME { \
+		bindings = <BINDINGS>; \
+		timeout-ms = <20>; \
+		key-positions = <KEYPOS>; \
+		layers = <LAYERS>; \
+	};
+
+// Combo with a longer timeout
+#define COMBO_L(NAME, BINDINGS, KEYPOS, LAYERS) \
+	combo_##NAME { \
+		bindings = <BINDINGS>; \
+		timeout-ms = <35>; \
+		key-positions = <KEYPOS>; \
+		layers = <LAYERS>; \
+	};

@@ -4,3 +4,51 @@ unstick: unstick {
 	#binding-cells = <0>;
 	bindings = <&kp LSHIFT &kp RSHIFT &kp LCTRL &kp RCTRL &kp LALT &kp RALT &kp LGUI &kp RGUI>;
 };
+
+ZMK_MACRO1(nav_with_mod,
+	wait-ms = <0>;
+	bindings
+		= <&macro_press &mo NAV>
+		, <&macro_param_1to1>
+		, <&macro_press &kp MACRO_PLACEHOLDER>
+		, <&macro_pause_for_release>
+		, <&macro_param_1to1>
+		, <&macro_release &kp MACRO_PLACEHOLDER>
+		, <&macro_release &mo NAV>
+	;
+)
+
+ZMK_MACRO1(sym_with_mod,
+	wait-ms = <0>;
+	bindings
+		= <&macro_press &mo SYM>
+		, <&macro_param_1to1>
+		, <&macro_press &kp MACRO_PLACEHOLDER>
+		, <&macro_pause_for_release>
+		, <&macro_param_1to1>
+		, <&macro_release &kp MACRO_PLACEHOLDER>
+		, <&macro_release &mo SYM>
+	;
+)
+
+// String macros
+ZMK_MACRO(comma_spc, bindings = <&kp COMMA &kp SPACE>;)
+ZMK_MACRO(comma_space, bindings = <&kp COMMA &kp SPACE>;)
+ZMK_MACRO(arrow_slim_l, bindings = <&kp LS(COMMA) &kp MINUS>;)
+ZMK_MACRO(arrow_slim_r, bindings = <&kp MINUS &kp LS(DOT)>;)
+ZMK_MACRO(arrow_fat_l, bindings = <&kp LS(COMMA) &kp EQUAL>;)
+ZMK_MACRO(arrow_fat_r, bindings = <&kp EQUAL &kp LS(DOT)>;)
+ZMK_MACRO(arrow_pipe_l, bindings = <&kp LS(COMMA) &kp PIPE>;)
+ZMK_MACRO(arrow_pipe_r, bindings = <&kp PIPE &kp LS(DOT)>;)
+ZMK_MACRO(block_brc_start, bindings = <&kp SPACE &kp LBRC &kp RET>;)
+ZMK_MACRO(block_brc_end, bindings = <&kp RBRC &kp P &kp RET>;)
+ZMK_MACRO(block_par_start, bindings = <&kp SPACE &kp LPAR &kp RET>;)
+ZMK_MACRO(block_par_end, bindings = <&kp RPAR &kp P &kp RET>;)
+ZMK_MACRO(block_bkt_start, bindings = <&kp SPACE &kp LBKT &kp RET>;)
+ZMK_MACRO(block_bkt_end, bindings = <&kp RBKT &kp P &kp RET>;)
+ZMK_MACRO(eq_spaced, bindings = <&kp SPACE &kp EQUAL &kp SPACE>;)
+ZMK_MACRO(neq_spaced, bindings = <&kp SPACE &kp EXCL &kp EQUAL &kp SPACE>;)
+ZMK_MACRO(eq_dqt, bindings = <&kp EQUAL &kp DQT>;)
+ZMK_MACRO(neq_dqt, bindings = <&kp EXCL &kp EQUAL &kp DQT>;)
+ZMK_MACRO(le_spaced, bindings = <&kp SPACE &kp RS(COMMA) &kp EQUAL &kp SPACE>;)
+ZMK_MACRO(ge_spaced, bindings = <&kp SPACE &kp RS(DOT) &kp EQUAL &kp SPACE>;)

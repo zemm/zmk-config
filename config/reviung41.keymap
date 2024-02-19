@@ -146,12 +146,16 @@
 // | `   | !   | @   | #   | $   | %   |   | ^   | -   | *   | +   | |   | =   |
 // |     | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | "   |
 // |     | \   | ~   | :   | ;   | €   |   |     | _   | ,   | .   | :   |     |
+
+// | `   | !   | (   | )   | :   | %   |   | &   | $   | {   | }   | ;   | =   |
+// |     | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | "   |
+// |     | \   | ~   | *   | +   | €   |   | ^   | -   | _   | #   | |   |     |
 		symbol_layer {
 			bindings = <
-&kp GRAVE   &kp EXCL     &kp AT      &kp HASH      &kp DLLR     &kp PRCNT    ___ &kp HASH     &kp MINUS   &kp STAR    &kp PLUS    &kp PIPE      &kp EQUAL
-&trans      &lm LM1 N1   &lm LM2 N2  &lm LM3 N3    &lm LM4 N4   &lm RALT N5  ___ &rm RALT N6  &rm RM1 N7  &rm RM2 N8  &rm RM3 N9  &rm RM4 N0    &kp DQT
-&trans      &kp BSLH     &kp TILDE   &kp OC_COLON  &kp OC_SEMI  &kp EURO     ___ &kp TILDE    &kp UNDER   &kp COMMA   &kp DOT     &kp RS(FSLH)  &trans
-&comma_spc  &kp SPACE    &kp DOT     &comma_spc    &trans
+&kp GRAVE   &kp EXCL     &kp LPAR    &kp RPAR     &kp OC_COLON &kp PRCNT    ___ &kp AMPS     &kp DOLLAR  &kp LBRC    &kp RBRC    &kp OC_SEMI  &kp EQUAL
+&trans      &lm LM1 N1   &lm LM2 N2  &lm LM3 N3   &lm LM4 N4   &lm RALT N5  ___ &rm RALT N6  &rm RM1 N7  &rm RM2 N8  &rm RM3 N9  &rm RM4 N0   &kp DQT
+&trans      &kp BSLH     &kp TILDE   &kp STAR     &kp PLUS     &kp EURO     ___ &kp CARET    &kp MINUS   &kp UNDER   &kp HASH    &kp PIPE     &trans
+&comma_spc  &kp SPACE    &kp DOT     &comma_spc   &trans
 			>;
 		};
 

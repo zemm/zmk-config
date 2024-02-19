@@ -1,0 +1,95 @@
+// layer tap - hold preferred
+lth: behavior_layer_tap_hold_preferred {
+	compatible = "zmk,behavior-hold-tap";
+	label = "LAYER_TAP_HOLD_PREFERRED";
+	#binding-cells = <2>;
+	flavor = "tap-preferred";
+	tapping-term-ms = <180>;
+	quick_tap_ms = <150>;
+	bindings = <&mo>, <&kp>;
+};
+
+// layer tap - tap preferred
+ltt: behavior_layer_tap_tap_preferred {
+	compatible = "zmk,behavior-hold-tap";
+	label = "LAYER_TAP_TAP_PREFERRED";
+	#binding-cells = <2>;
+	flavor = "tap-preferred";
+	tapping-term-ms = <300>;
+	quick_tap_ms = <250>;
+	bindings = <&mo>, <&kp>;
+};
+
+// Timeless HRM https://github.com/urob/zmk-config
+lm: left_hand_positional_hold_tap {
+	compatible = "zmk,behavior-hold-tap";
+	label = "LEFT_HOMEROW_MODS";
+	#binding-cells = <2>;
+	flavor = "balanced";
+	tapping-term-ms = <300>;
+	quick-tap-ms = <175>; // repeat on tap-into-hold
+	global-quick-tap;
+	bindings = <&kp>, <&kp>;
+	hold-trigger-key-positions = <KEYS_L KEYS_T>;
+	hold-trigger-on-release; // delay positional check until key-release
+};
+rm: right_hand_positional_hold_tap {
+	compatible = "zmk,behavior-hold-tap";
+	label = "RIGHT_HOMEROW_MODS";
+	#binding-cells = <2>;
+	flavor = "balanced";
+	tapping-term-ms = <300>;
+	quick-tap-ms = <175>; // repeat on tap-into-hold
+	global-quick-tap;
+	bindings = <&kp>, <&kp>;
+	hold-trigger-key-positions = <KEYS_R KEYS_T>;
+	hold-trigger-on-release; // delay positional check until key-release
+};
+
+// Layers with mods
+ms: momentary_sym_mod_tap {
+	compatible = "zmk,behavior-hold-tap";
+	label = "MOMENTARY_SYM_MOD_TAP";
+	#binding-cells = <2>;
+	flavor = "tap-preferred";
+	tapping-term-ms = <300>;
+	quick-tap-ms = <250>;
+	global-quick-tap;
+	bindings = <&sym_with_mod>, <&kp>;
+};
+
+mn: momentary_nav_mod_tap {
+	compatible = "zmk,behavior-hold-tap";
+	label = "MOMENTARY_NAV_MOD_TAP";
+	#binding-cells = <2>;
+	flavor = "tap-preferred";
+	tapping-term-ms = <300>;
+	quick-tap-ms = <250>;
+	global-quick-tap;
+	bindings = <&nav_with_mod>, <&kp>;
+};
+
+// Tap dance
+td_nav_kp: tap_dance_nav_keypad {
+	compatible = "zmk,behavior-tap-dance";
+	label = "TAP_DANCE_NAV_KEYPAD";
+	#binding-cells = <0>;
+	tapping-term-ms = <200>;
+	bindings = <&mo NAV>, <&mo KPD>;
+};
+
+td_nav_tog: tap_dance_nav_toggle {
+	compatible = "zmk,behavior-tap-dance";
+	label = "TAP_DANCE_NAV_TOGGLE";
+	#binding-cells = <0>;
+	tapping-term-ms = <200>;
+	bindings = <&mo NAV>, <&to NAV>;
+};
+
+//td_comma_commaspace: tap_dance_comma_commaspace {
+//	compatible = "zmk,behaviour-tap-dance";
+//	label = "TAP_DANCE_COMMA_COMMASPACE";
+//	#binding-cells = <0>;
+//	tapping-term-ms = <200>;
+//	bingings = <&mo COMMA>, <&comma_spc>;
+//};

@@ -77,11 +77,11 @@
 
 		//COMBO_S(backspace, &kp BSPC, 13 14, LAYERS_ALPHANUM)
 
-		//COMBO_S(tab, &kp TAB, 1 2, LAYERS_ALPHANUM)
 		COMBO_L(lbkt, &kp LBKT, 1 2, LAYERS_ALPHANUM)
+		COMBO_L(semi, &kp OC_SEMI, 2 3, LAYERS_ALPHANUM)
 		COMBO_S(rbkt, &kp RBKT, 3 4, LAYERS_ALPHANUM)
-		//COMBO_S(esc, &kp ESC, 25 26, LAYERS_ALL)
 		COMBO_L(lpar, &kp LPAR, 25 26, LAYERS_ALPHANUM)
+		COMBO_S(colon, &kp OC_COLON, 26 27, LAYERS_ALPHANUM)
 		COMBO_S(rpar, &kp RPAR, 27 28, LAYERS_ALPHANUM)
 
 		COMBO_S(lbrc, &kp LBRC, 7 8, LAYERS_ALPHANUM)
@@ -135,21 +135,23 @@
 &lt KPD TAB    &ms LM1 OC_Q &ms LM2 OC_W &ms LM3 OC_F &ms LM4 OC_P &ms RALT OC_G ___  &ms RALT OC_J &ms RM1 OC_L &ms RM2 OC_U &ms RM3 OC_Y &ms RM4 OC_A_UMLAUT &kp OC_O_UMLAUT
 &kp BSPC       &lm LM1 OC_A &lm LM2 OC_R &lm LM3 OC_S &lm LM3 OC_T &lm RALT OC_D ___  &rm RALT OC_H &rm RM1 OC_N &rm RM2 OC_E &rm RM3 OC_I &rm RM4 OC_O        &kp SQT
 &mt LSHFT ESC  &lt KPD OC_Z &mn 0 OC_X   &mn 0 OC_C   &mn 0 OC_V   &kp OC_B      ___  &kp OC_K      &kp OC_M     &ms 0 COMMA  &kp DOT      &lt NAV FSLH        &mt RSHFT RET
-&kp LSHFT      &kp SPACE    &td_nav_kp   &sl SYM      &kp RSHFT
+&kp LSHFT      &kp SPACE    &td_nav_tog  &sl SYM      &kp RSHFT
 			>;
 		};
+//&kp LSHFT      &kp SPACE    &td_nav_tog  &sl SYM      &kp RSHFT
+//&kp LSHFT      &kp SPACE    &td_nav_kp   &sl SYM      &kp RSHFT
 //&lth KPD RET   &kp SPACE    &td_nav_kp   &sl SYM      &sym_with_mod RSHFT
 
 // Numbers on the left, because of mouse on the right hand
-// | `   | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | =   |
-// |     | !   | @   | #   | $   | %   |   | ^   | -   | *   | +   | |   | "   |
-// |     | ~   | /   | :   | ;   | €   |   |     | _   | ,   | .   | ?   |     |
+// | `   | !   | @   | #   | $   | %   |   | ^   | -   | *   | +   | |   | =   |
+// |     | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | "   |
+// |     | \   | ~   | :   | ;   | €   |   |     | _   | ,   | .   | :   |     |
 		symbol_layer {
 			bindings = <
-&kp GRAVE   &kp N1       &kp N2     &kp N3       &kp N4       &kp N5         ___ &kp N6        &kp N7         &kp N8       &kp N9        &kp N0        &kp EQUAL
-&trans      &lm LM1 EXCL &lm LM2 AT &lm LM3 HASH &lm LM4 DLLR &lm RALT PRCNT ___ &rm RALT HASH &rm RM1 MINUS  &rm RM2 STAR &rm RM3 PLUS  &rm RM4 PIPE  &kp DQT
-&trans      &kp TILDE    &kp BSLH   &kp COLON    &kp OC_SEMI  &kp EURO       ___ &kp TILDE     &kp UNDER      &kp COMMA    &kp DOT       &kp RS(FSLH)  &trans
-&comma_spc  &kp SPACE    &kp DOT    &comma_spc   &trans
+&kp GRAVE   &kp EXCL     &kp AT      &kp HASH      &kp DLLR     &kp PRCNT    ___ &kp HASH     &kp MINUS   &kp STAR    &kp PLUS    &kp PIPE      &kp EQUAL
+&trans      &lm LM1 N1   &lm LM2 N2  &lm LM3 N3    &lm LM4 N4   &lm RALT N5  ___ &rm RALT N6  &rm RM1 N7  &rm RM2 N8  &rm RM3 N9  &rm RM4 N0    &kp DQT
+&trans      &kp BSLH     &kp TILDE   &kp OC_COLON  &kp OC_SEMI  &kp EURO     ___ &kp TILDE    &kp UNDER   &kp COMMA   &kp DOT     &kp RS(FSLH)  &trans
+&comma_spc  &kp SPACE    &kp DOT     &comma_spc    &trans
 			>;
 		};
 

@@ -1,2 +1,9 @@
 build
 ideas.md
+/.vscode
+/.west
+/modules
+/zephyr
+/zmk
+/build
+result

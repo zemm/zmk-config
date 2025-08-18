@@ -1,4 +1,4 @@
-TARGETS=aurora-corne reviung41
+TARGETS=aurora_corne reviung41 bkd_xiao_ble
 
 .PHONY: all build upload clean update
 

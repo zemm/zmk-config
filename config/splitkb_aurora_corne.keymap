@@ -16,9 +16,8 @@
 #define DEF 0
 #define SYM 1
 #define NAV 2
-#define MAC 3
-#define FUN 4
-#define KPD 5
+#define FUN 3
+#define KPD 4
 
 #define LAYERS_ALL DEF SYM NAV MAC FUN KPD
 #define LAYERS_ALPHANUM DEF SYM KPD
@@ -164,15 +163,6 @@
 &trans   &sk LM1      &sk LM2       &sk LM3      &sk LM4       &lm RALT DEL ___  &kp BSPC  &kp LEFT   &kp DOWN   &kp RIGHT  &kp HASH  &kp DEL
 &trans   &kp LC(Z)    &kp LC(X)     &kp LC(C)    &kp LC(V)     &kp RET      ___  &none     &kp HOME   &kp SPACE  &kp END    &kp FSLH  &trans
 &mo MAC  &kp SPACE    &trans                                                ___  &trans    &trans     &mo FUN
-			>;
-		};
-
-		macro_layer {
-			bindings = <
-&trans  &none  &none  &arrow_pipe_l  &arrow_fat_r   &none  ___  &none  &none  &block_brc_start  &block_brc_end  &le_spaced  &eq_spaced
-&trans  &none  &none  &arrow_fat_l   &arrow_pipe_r  &none  ___  &none  &none  &block_par_start  &block_par_end  &ge_spaced  &neq_spaced
-&trans  &none  &none  &arrow_slim_l  &arrow_slim_r  &none  ___  &none  &none  &block_bkt_start  &block_bkt_end  &none       &none
-&none   &none  &none                                       ___  &none  &none  &none
 			>;
 		};
 

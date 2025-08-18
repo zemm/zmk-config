@@ -1,25 +1,42 @@
-build: build-corne build-reviung41
+TARGETS=aurora-corne reviung41
 
-build-corne:
-	nix build .#firmware-aurora-corne
+.PHONY: all build upload clean update
 
-build-reviung41:
-	nix build .#firmware-reviung41
+build: $(addprefix build/,$(TARGETS))
 
+build/%: Makefile flake.nix flake.lock
+	echo "Building firmware for target: $*"
+	if command -v nom > /dev/null; then \
+		nom build --out-link $@ .#firmware-$*; \
+	else \
+		nix build --out-link $@ .#firmware-$*; \
+	fi
 
-upload:
+flash:
 	@echo "Available targets:"
-	@grep ^upload- Makefile | sed -e 's/\(.*\):.*/  \1/'
+	@for target in $(TARGETS); do \
+		echo "  flash/$$target"; \
+	done
 
-upload-corne:
+flash/%: build/%
 	# TODO
 
 clean:
-	# Nix gc will clean
+	# Nix gc will clean data
+	rm -fr build
 
+update: update-flake update-firmware
 
-update:
+update-flake:
 	nix flake update
+
+update-firmware:
+	# @TODO: update-firmware is not working atm
+	#
+	#for target in $(TARGETS); do \
+	#	echo "Updating firmware for target: $$target"; \
+	#	UPDATE_NIX_ATTR_PATH=firmware-$$target nix run .#update; \
+	#done
 
 #
 # TAIPO

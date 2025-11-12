@@ -113,9 +113,9 @@
 
 		navigation_layer {
 			bindings = <
-&trans  &ml LM1 FSLH &ml LM2 SPACE &ml LM3 HASH &ml LM4 SPACE &ml RALT F4  ___  &kp INS   &kp PG_UP  &kp UP     &kp PG_DN  &none    &kp ESC
-&trans  &sk LM1      &sk LM2       &sk LM3      &sk LM4       &ml RALT DEL ___  &kp BSPC  &kp LEFT   &kp DOWN   &kp RIGHT  &none    &kp DEL
-&trans  &kp LC(Z)    &kp LC(X)     &kp LC(C)    &kp LC(V)     &kp RET      ___  &none     &kp HOME   &kp SPACE  &kp END    &kp FSLH &trans
+&trans  &ml LM1 FSLH &ml LM2 SPACE &ml LM3 HASH &ml LM4 SPACE &ml RALT F4  ___  &kp INS   &kp PG_UP  &kp UP     &kp PG_DN  &none     &kp ESC
+&trans  &sk LM1      &sk LM2       &sk LM3      &sk LM4       &ml RALT DEL ___  &kp BSPC  &kp LEFT   &kp DOWN   &kp RIGHT  &none     &kp DEL
+&trans  &kp LC(Z)    &kp LC(X)     &kp LC(C)    &kp LC(V)     &kp RET      ___  &none     &kp HOME   &kp SPACE  &kp END    &kp FSLH  &trans
 &trans  &kp SPACE    &trans        &trans       &mo FUN
 			>;
 		};
@@ -129,22 +129,22 @@
 			>;
 		};
 
-//		kicad_layer {
-//			bindings = <
-//&trans  &kp LEFT   &kp KP_N7  &kp KP_8  &kp KP_9  &kp RIGHT     ___ &none  &none  &none  &none  &none  &none
-//&trans  &kp KP_DOT &kp KP_N4  &kp KP_5  &kp KP_6  &kp DOT       ___ &none  &none  &none  &none  &none  &none
-//&trans  &kp KP_N0  &kp KP_N1  &kp KP_2  &kp KP_3  &kp KP_ENTER  ___ &none  &none  &none  &none  &none  &none
-//&to DEF &trans  &trans  &trans  &trans
-//			>;
-//		};
-//
-//		keypad_layer {
-//			bindings = <
-//&trans    &kp LALT   &kp PG_UP  &kp UP    &kp PG_DN  &none    ___  &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
-//&trans    &kp LCTRL  &kp LEFT   &kp DOWN  &kp RIGHT  &kp DEL  ___  &kp KP_DOT  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MULTIPLY
-//&trans    &kp LGUI   &kp COMMA  &kp SPACE &kp DOT    &kp RET  ___  &none       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_ENTER &kp KP_ENTER
-//&tog KPD  &trans     &trans                                   ___  &kp KP_N0   &kp KP_DOT
-//			>;
-//		};
+		kicad_layer {
+			bindings = <
+&trans  &kp LEFT   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp RIGHT     ___ &none  &none  &none  &none  &none  &none
+&trans  &kp COMMA  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp DOT       ___ &none  &none  &none  &none  &none  &none
+&trans  &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_ENTER  ___ &none  &none  &none  &none  &none  &none
+&to DEF &trans  &trans  &trans  &trans
+			>;
+		};
+
+		keypad_layer {
+			bindings = <
+&trans    &kp LALT   &kp PG_UP  &kp UP    &kp PG_DN  &none    ___  &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
+&trans    &kp LCTRL  &kp LEFT   &kp DOWN  &kp RIGHT  &kp DEL  ___  &kp KP_DOT  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MULTIPLY
+&trans    &kp LGUI   &kp COMMA  &kp SPACE &kp DOT    &kp RET  ___  &none       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_ENTER &kp KP_ENTER
+&tog KPD  &trans     &trans                                   ___  &kp KP_N0   &kp KP_DOT
+			>;
+		};
 	};
 };

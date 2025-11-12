@@ -19,7 +19,7 @@ flash:
 	done
 
 flash/%: build/%
-	# TODO
+	nix run .#flash-$*
 
 clean:
 	# Nix gc will clean data

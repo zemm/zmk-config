@@ -16,11 +16,11 @@
 #define DEF 0
 #define SYM 1
 #define NAV 2
-#define NAVt 3
-#define FUN 4
+#define FUN 3
+#define KCD 4
 #define KPD 5
 
-#define LAYERS_ALL DEF SYM NAV NAVt FUN KPD
+#define LAYERS_ALL DEF SYM NAV KCD FUN KPD
 #define LAYERS_ALPHANUM DEF SYM KPD
 
 // Modifiers for left/right side
@@ -90,61 +90,61 @@
 		alpha_layer {
 			bindings = <
 &lt KPD TAB    &ms LM1 OC_Q &ms LM2 OC_W &ms LM3 OC_F &ms LM4 OC_P &ms RALT OC_G ___  &ms RALT OC_J &ms RM1 OC_L &ms RM2 OC_U &ms RM3 OC_Y &ms RM4 OC_A_UMLAUT &kp OC_O_UMLAUT
-&kp BSPC       &lm LM1 OC_A &lm LM2 OC_R &lm LM3 OC_S &lm LM4 OC_T &lm RALT OC_D ___  &rm RALT OC_H &rm RM1 OC_N &rm RM2 OC_E &rm RM3 OC_I &rm RM4 OC_O        &kp SQT
+&kp BSPC       &ml LM1 OC_A &ml LM2 OC_R &ml LM3 OC_S &ml LM4 OC_T &ml RALT OC_D ___  &mr RALT OC_H &mr RM1 OC_N &mr RM2 OC_E &mr RM3 OC_I &mr RM4 OC_O        &kp SQT
 &mt LSHFT ESC  &lt KPD OC_Z &mn 0 OC_X   &mn 0 OC_C   &mn 0 OC_V   &kp OC_B      ___  &kp OC_K      &kp OC_M     &ms 0 COMMA  &kp DOT      &lt NAV FSLH        &mt RSHFT RET
-&kp LSHFT      &kp SPACE    &td_nav_tog  &sl SYM      &kp RSHFT
+&lmt_kcd       &kp SPACE    &lmt_nav     &sl SYM      &kp RSHFT
 			>;
 		};
-//&kp LSHFT      &kp SPACE    &td_nav_tog  &sl SYM      &kp RSHFT
-//&kp LSHFT      &kp SPACE    &td_nav_kp   &sl SYM      &kp RSHFT
-//&lth KPD RET   &kp SPACE    &td_nav_kp   &sl SYM      &sym_with_mod RSHFT
+//&kp LSHFT      &kp SPACE    &lmt_nav      &sl SYM     &kp RSHFT
+//&kp LSHFT      &kp SPACE    &lmt_nav_kpd  &sl SYM     &kp RSHFT
+//&lth KPD RET   &kp SPACE    &lmt_nav_kpd  &sl SYM     &sym_with_mod RSHFT
 
-// | `   | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | =   |
 // |     | !   | (   | )   | :   | %   |   | &   | -   | _   | #   | |   | "   |
+// | `   | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | =   |
 // |     | ~   | \   | *   | +   | €   |   | ^   | $   | {   | }   | ;   |     |
 		symbol_layer {
 			bindings = <
-&kp GRAVE   &lm LM1 N1   &lm LM2 N2  &lm LM3 N3   &lm LM4 N4   &lm RALT N5  ___  &rm RALT N6  &rm RM1 N7  &rm RM2 N8  &rm RM3 N9  &rm RM4 N0   &kp EQUAL
-&trans      &kp EXCL     &kp LPAR    &kp RPAR     &kp OC_COLON &kp PRCNT    ___  &kp AMPS     &kp MINUS   &kp UNDER   &kp HASH    &kp PIPE     &kp DQT
-&trans      &kp TILDE    &kp BSLH    &kp STAR     &kp PLUS     &kp EURO     ___  &kp CARET    &kp DOLLAR  &kp LBRC    &kp RBRC    &kp OC_SEMI  &trans
-&comma_spc  &kp SPACE    &kp DOT     &comma_spc   &trans
+&kp GRAVE   &kp EXCL     &kp LPAR     &kp RPAR     &kp OC_COLON &kp PRCNT    ___  &kp AMPS     &kp MINUS   &kp UNDER   &kp HASH    &kp PIPE     &kp EQUAL
+&trans      &ml LM1 N1   &ml LM2 N2   &ml LM3 N3   &ml LM4 N4   &ml RALT N5  ___  &mr RALT N6  &mr RM1 N7  &mr RM2 N8  &mr RM3 N9  &mr RM4 N0   &kp DQT
+&trans      &kp TILDE    &kp BSLH     &kp STAR     &kp PLUS     &kp EURO     ___  &kp CARET    &kp DOLLAR  &kp LBRC    &kp RBRC    &kp OC_SEMI  &trans
+&comma_spc  &kp SPACE    &kp DOT      &comma_spc   &trans
 			>;
 		};
 
 		navigation_layer {
 			bindings = <
-&trans  &lm LM1 FSLH &lm LM2 SPACE &lm LM3 HASH &lm LM4 SPACE &lm RALT F4  ___  &kp INS   &kp PG_UP  &kp UP     &kp PG_DN  &none    &kp ESC
-&trans  &sk LM1      &sk LM2       &sk LM3      &sk LM4       &lm RALT DEL ___  &kp BSPC  &kp LEFT   &kp DOWN   &kp RIGHT  &none    &kp DEL
+&trans  &ml LM1 FSLH &ml LM2 SPACE &ml LM3 HASH &ml LM4 SPACE &ml RALT F4  ___  &kp INS   &kp PG_UP  &kp UP     &kp PG_DN  &none    &kp ESC
+&trans  &sk LM1      &sk LM2       &sk LM3      &sk LM4       &ml RALT DEL ___  &kp BSPC  &kp LEFT   &kp DOWN   &kp RIGHT  &none    &kp DEL
 &trans  &kp LC(Z)    &kp LC(X)     &kp LC(C)    &kp LC(V)     &kp RET      ___  &none     &kp HOME   &kp SPACE  &kp END    &kp FSLH &trans
 &trans  &kp SPACE    &trans        &trans       &mo FUN
 			>;
 		};
 
-		navigation_tog_layer {
-			bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans ___ &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans ___ &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans ___ &trans  &trans  &trans  &trans  &trans  &trans
-&to DEF &trans  &to DEF &trans  &to DEF
-			>;
-		};
-
 		function_layer {
 			bindings = <
-&rgb_ug RGB_TOG &rgb_ug RGB_BRI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_EFF &bootloader ___  &kp C_VOL_UP     &kp F1  &kp F2  &kp F3  &kp F4  &kp PRINTSCREEN
-&none           &kp LM1         &kp LM2         &kp LM3         &kp LM4         &kp RALT    ___  &kp C_VOL_DN     &kp F5  &kp F6  &kp F7  &kp F8  &kp PAUSE_BREAK
-&to DEF         &rgb_ug RGB_BRD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_EFR &sys_reset  ___  &kp C_PLAY_PAUSE &kp F9  &kp F10 &kp F11 &kp F12 &unstick
-&none           &none           &to DEF         &none           &tog FUN
+&rgb_ug RGB_TOG &rgb_ug RGB_BRI      &rgb_ug RGB_SAI  &rgb_ug RGB_HUI &rgb_ug RGB_EFF  &bootloader ___  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp PRINTSCREEN
+&none           &ml LM1 C_PLAY_PAUSE &ml LM2 C_VOL_UP &ml LM3 C_MUTE  &ml LM4 C_VOL_DN &kp RALT    ___  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp PAUSE_BREAK
+&to DEF         &rgb_ug RGB_BRD      &rgb_ug RGB_SAD  &rgb_ug RGB_HUD &rgb_ug RGB_EFR  &sys_reset  ___  &kp F11 &kp F12 &kp F13 &kp F14 &kp F15 &unstick
+&none           &none                &to DEF          &none           &tog FUN
 			>;
 		};
 
-		keypad_layer {
-			bindings = <
-&trans    &kp LALT   &kp PG_UP  &kp UP    &kp PG_DN  &none    ___  &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
-&trans    &kp LCTRL  &kp LEFT   &kp DOWN  &kp RIGHT  &kp DEL  ___  &kp KP_DOT  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MULTIPLY
-&trans    &kp LGUI   &kp COMMA  &kp SPACE &kp DOT    &kp RET  ___  &none       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_ENTER &kp KP_ENTER
-&tog KPD  &trans     &trans                                   ___  &kp KP_N0   &kp KP_DOT
-			>;
-		};
+//		kicad_layer {
+//			bindings = <
+//&trans  &kp LEFT   &kp KP_N7  &kp KP_8  &kp KP_9  &kp RIGHT     ___ &none  &none  &none  &none  &none  &none
+//&trans  &kp KP_DOT &kp KP_N4  &kp KP_5  &kp KP_6  &kp DOT       ___ &none  &none  &none  &none  &none  &none
+//&trans  &kp KP_N0  &kp KP_N1  &kp KP_2  &kp KP_3  &kp KP_ENTER  ___ &none  &none  &none  &none  &none  &none
+//&to DEF &trans  &trans  &trans  &trans
+//			>;
+//		};
+//
+//		keypad_layer {
+//			bindings = <
+//&trans    &kp LALT   &kp PG_UP  &kp UP    &kp PG_DN  &none    ___  &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
+//&trans    &kp LCTRL  &kp LEFT   &kp DOWN  &kp RIGHT  &kp DEL  ___  &kp KP_DOT  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MULTIPLY
+//&trans    &kp LGUI   &kp COMMA  &kp SPACE &kp DOT    &kp RET  ___  &none       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_ENTER &kp KP_ENTER
+//&tog KPD  &trans     &trans                                   ___  &kp KP_N0   &kp KP_DOT
+//			>;
+//		};
 	};
 };

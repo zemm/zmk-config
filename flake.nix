@@ -46,6 +46,14 @@
         inherit zephyrDepsHash;
       };
 
+      firmware-reviung41z = zmk-nix.legacyPackages.${system}.buildKeyboard {
+        name = "firmware-reviung41z";
+        board = "sparkfun_pro_micro_rp2040";
+        shield = "reviung41z";
+        src = nixpkgs.lib.sourceFilesBySuffices self sourceFileList;
+        inherit zephyrDepsHash;
+      };
+
       firmware-aurora_corne = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
         name = "firmware-aurora_corne";
         board = "nice_nano_v2";

@@ -74,9 +74,9 @@
 // |     |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |  ,  |  .  |  /  |     |
 		alpha_layer {
 			bindings = <
-&lt KPD TAB    &kp OC_Q     &kp OC_W     &kp OC_F     &kp OC_P     &kp OC_G      ___  &kp OC_J      &kp OC_L     &kp OC_U     &kp OC_Y     &kp OC_A_UMLAUT &kp OC_O_UMLAUT
-&kp BSPC       &ml LM1 OC_A &ml LM2 OC_R &ml LM3 OC_S &ml LM4 OC_T &ml RALT OC_D ___  &mr RALT OC_H &mr RM1 OC_N &mr RM2 OC_E &mr RM3 OC_I &mr RM4 OC_O    &kp SQT
-&mt LSHFT ESC  &lt KPD OC_Z &kp OC_X     &kp OC_C     &kp OC_V     &kp OC_B      ___  &kp OC_K      &kp OC_M     &kp COMMA    &kp DOT      &lt NAV FSLH    &mt RSHFT RET
+&lt KPD TAB    &kp OC_Q     &kp OC_W     &kp OC_F     &kp OC_P     &kp OC_G      ___  &kp OC_J      &kp OC_L     &kp OC_U     &kp OC_Y     &kp OC_AU    &kp OC_OU
+&kp BSPC       &ml LM1 OC_A &ml LM2 OC_R &ml LM3 OC_S &ml LM4 OC_T &ml RALT OC_D ___  &mr RALT OC_H &mr RM1 OC_N &mr RM2 OC_E &mr RM3 OC_I &mr RM4 OC_O &kp SQT
+&mt LSHFT ESC  &lt KPD OC_Z &kp OC_X     &kp OC_C     &kp OC_V     &kp OC_B      ___  &kp OC_K      &kp OC_M     &kp COMMA    &kp DOT      &lt NAV FSLH &mt RSHFT RET
 &lmt_kcd       &kp SPACE    &lmt_nav     &mo SYM      &kp RSHFT
 			>;
 		};
@@ -87,26 +87,26 @@
 // |     | \   |     |     | ;   | €   |   | *   | _   | ,   | .   | /   |     |
 		symbol_layer {
 			bindings = <
-&kp GRAVE   &kp N1       &kp N2       &kp N3       &kp N4       &kp N5            ___  &kp N6        &kp N7        &kp N8       &kp N9       &kp N0          &kp EQUAL
-&trans      &ml LM1 LBKT &ml LM2 LBRC &ml LM3 RBRC &ml LM4 RBKT &ml RALT OC_COLON ___  &mr RALT PLUS &mr RM1 MINUS &mr RM2 LPAR &mr RM3 RPAR &mr RM4 OC_SEMI &kp PIPE
-&trans      &kp BSLH     &none        &none        &kp OC_SEMI  &kp EURO          ___  &kp STAR      &kp UNDER     &kp COMMA    &kp DOT      &kp FSLH        &trans
-&comma_spc  &trans       &trans       &trans       &mo FUN
+&kp GRAVE     &kp N1       &kp N2       &kp N3       &kp N4       &kp N5            ___  &kp N6        &kp N7        &kp N8       &kp N9       &kp N0          &kp EQUAL
+&trans        &ml LM1 LBKT &ml LM2 LBRC &ml LM3 RBRC &ml LM4 RBKT &ml RALT OC_COLON ___  &mr RALT PLUS &mr RM1 MINUS &mr RM2 LPAR &mr RM3 RPAR &mr RM4 OC_SEMI &kp PIPE
+&mt LSHFT ESC &kp BSLH     &none        &none        &kp OC_SEMI  &kp EURO          ___  &kp STAR      &kp UNDER     &kp COMMA    &kp DOT      &kp FSLH        &trans
+&comma_spc    &trans       &trans       &trans       &mo FUN
 			>;
 		};
 
 		navigation_layer {
 			bindings = <
-&trans  &kp FSLH   &kp SPACE  &kp HASH   &kp SPACE  &kp F4        ___  &kp INS   &kp PG_UP  &kp UP     &kp PG_DN  &none     &kp ESC
-&trans  &kp LM1    &kp LM2    &kp LM3    &kp LM4    &ml RALT DEL  ___  &kp BSPC  &kp LEFT   &kp DOWN   &kp RIGHT  &none     &kp DEL
-&trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp RET       ___  &none     &kp HOME   &kp SPACE  &kp END    &kp FSLH  &trans
+&trans  &kp FSLH   &kp SPACE  &kp HASH   &kp SPACE  &kp F4        ___  &kp INS    &kp PG_UP  &kp UP     &kp PG_DN  &none      &kp ESC
+&trans  &kp LM1    &kp LM2    &kp LM3    &kp LM4    &ml RALT DEL  ___  &kp BSPC   &kp LEFT   &kp DOWN   &kp RIGHT  &kp SPACE  &kp DEL
+&trans  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp RET       ___  &none      &kp HOME   &none      &kp END    &kp FSLH   &trans
 &trans  &kp SPACE  &trans     &trans     &mo FUN
 			>;
 		};
 
 		function_layer {
 			bindings = <
-&rgb_ug RGB_TOG &rgb_ug RGB_BRI      &rgb_ug RGB_SAI  &rgb_ug RGB_HUI &rgb_ug RGB_EFF  &bootloader ___  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp PRINTSCREEN
-&none           &ml LM1 C_PLAY_PAUSE &ml LM2 C_VOL_UP &ml LM3 C_MUTE  &ml LM4 C_VOL_DN &kp RALT    ___  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp PAUSE_BREAK
+&rgb_ug RGB_TOG &rgb_ug RGB_BRI      &rgb_ug RGB_SAI  &rgb_ug RGB_HUI &rgb_ug RGB_EFF  &bootloader ___  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp PAUSE_BREAK
+&none           &ml LM1 C_PLAY_PAUSE &ml LM2 C_VOL_UP &ml LM3 C_MUTE  &ml LM4 C_VOL_DN &kp RALT    ___  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10 &kp PRINTSCREEN
 &to DEF         &rgb_ug RGB_BRD      &rgb_ug RGB_SAD  &rgb_ug RGB_HUD &rgb_ug RGB_EFR  &sys_reset  ___  &kp F11 &kp F12 &kp F13 &kp F14 &kp F15 &unstick
 &none           &none                &to DEF          &none           &tog FUN
 			>;

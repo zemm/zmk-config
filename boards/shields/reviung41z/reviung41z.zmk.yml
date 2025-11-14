@@ -1,0 +1,9 @@
+file_format: "1"
+id: reviung41z
+name: REVIUNG41Z
+type: shield
+url: https://github.com/gtips/reviung/tree/master/reviung41
+requires: [pro_micro]
+features:
+  - keys
+  - studio

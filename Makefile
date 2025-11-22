@@ -25,6 +25,9 @@ clean:
 	# Nix gc will clean data
 	rm -fr build
 
+shell:
+	nix develop
+
 update: update-flake update-firmware
 
 update-flake:

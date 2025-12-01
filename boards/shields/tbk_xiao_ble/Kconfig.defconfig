@@ -1,17 +1,17 @@
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
-if SHIELD_BKD_XIAO_BLE_LEFT
+if SHIELD_TBK_XIAO_BLE_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "bkd xiao"
+    default "tbk xiao"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 endif
 
-if SHIELD_BKD_XIAO_BLE_LEFT || SHIELD_BKD_XIAO_BLE_RIGHT
+if SHIELD_TBK_XIAO_BLE_LEFT || SHIELD_TBK_XIAO_BLE_RIGHT
 
 config ZMK_SPLIT
     default y

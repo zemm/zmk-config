@@ -33,8 +33,8 @@
         firmware = firmware-aurora_corne;
       };
 
-      flash-bkd_xiao_ble = zmk-nix.packages.${system}.flash.override {
-        firmware = firmware-bkd_xiao_ble;
+      flash-tbk_xiao_ble = zmk-nix.packages.${system}.flash.override {
+        firmware = firmware-tbk_xiao_ble;
       };
 
       # Firmwares
@@ -62,10 +62,10 @@
         inherit zephyrDepsHash;
       };
 
-      firmware-bkd_xiao_ble = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
-        name = "firmware-bkd_xiao_ble";
+      firmware-tbk_xiao_ble = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
+        name = "firmware-tbk_xiao_ble";
         board = "seeeduino_xiao_ble";
-        shield = "bkd_xiao_ble_%PART%";
+        shield = "tbk_xiao_ble_%PART%";
         src = nixpkgs.lib.sourceFilesBySuffices self sourceFileList;
         inherit zephyrDepsHash;
       };

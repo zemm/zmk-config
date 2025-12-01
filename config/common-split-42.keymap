@@ -68,17 +68,30 @@
 		};
 
 //   ~     !     @     #     $     %         ^     &     *     (     )
-// | `   | !   | {   | $   | }   | %   |   | \   | (   | -   | )   | ;   | =   |
-// |     | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | "   |
-// |     | |   | [   | #   | ]   | €   |   |     | +   | ,   | .   | /   |     |
+// | `   | $   | {   | (   | [   | %   |   | €   | ]   | )   | }   | -   | =   |
+// |     | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | ;   |
+// |     | |   | \   | #   |     |     |   |     | +   | ,   | .   | /   |     |
 		symbol_layer {
 			bindings = <
-&kp GRAVE   &kp EXCL       &kp LBRC   &kp DOLLAR &kp RBRC   &kp PRCNT   ___ &kp BSLH    &kp LPAR   &kp MINUS  &kp RPAR   &kp OC_SEMI &kp EQUAL
-&trans      &ml LM1 N1     &ml LM2 N2 &ml LM3 N3 &ml LM4 N4 &ml RALT N5 ___ &mr RALT N6 &mr RM1 N7 &mr RM2 N8 &mr RM3 N9 &mr RM4 N0  &kp SQT
-&trans      &kp PIPE       &kp LBKT   &kp HASH   &kp RBKT   &kp EURO    ___ &none       &kp PLUS   &kp COMMA  &kp DOT    &kp FSLH    &trans
+&kp GRAVE   &kp DOLLAR     &kp LBRC   &kp LPAR   &kp LBKT   &kp PRCNT   ___ &kp EURO    &kp RBKT   &kp RPAR   &kp RBRC   &kp MINUS   &kp EQUAL
+&trans      &ml LM1 N1     &ml LM2 N2 &ml LM3 N3 &ml LM4 N4 &ml RALT N5 ___ &mr RALT N6 &mr RM1 N7 &mr RM2 N8 &mr RM3 N9 &mr RM4 N0  &kp OC_SEMI
+&trans      &kp PIPE       &kp BSLH   &kp HASH   &none      &none       ___ &none       &kp PLUS   &kp COMMA  &kp DOT    &kp FSLH    &trans
 &comma_spc  &kt_spc LSFT 0 &kt_spc LSFT 0                               ___ &trans      &trans     &mo FUN
 			>;
 		};
+
+//   ~     !     @     #     $     %         ^     &     *     (     )
+// | `   | !   | {   | $   | }   | %   |   | \   | (   | -   | )   | ;   | =   |
+// |     | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | "   |
+// |     | |   | [   | #   | ]   | €   |   |     | +   | ,   | .   | /   |     |
+//		symbol_layer {
+//			bindings = <
+//&kp GRAVE   &kp EXCL       &kp LBRC   &kp DOLLAR &kp RBRC   &kp PRCNT   ___ &kp BSLH    &kp LPAR   &kp MINUS  &kp RPAR   &kp OC_SEMI &kp EQUAL
+//&trans      &ml LM1 N1     &ml LM2 N2 &ml LM3 N3 &ml LM4 N4 &ml RALT N5 ___ &mr RALT N6 &mr RM1 N7 &mr RM2 N8 &mr RM3 N9 &mr RM4 N0  &kp SQT
+//&trans      &kp PIPE       &kp LBKT   &kp HASH   &kp RBKT   &kp EURO    ___ &none       &kp PLUS   &kp COMMA  &kp DOT    &kp FSLH    &trans
+//&comma_spc  &kt_spc LSFT 0 &kt_spc LSFT 0                               ___ &trans      &trans     &mo FUN
+//			>;
+//		};
 
 		function_layer {
 			bindings = <

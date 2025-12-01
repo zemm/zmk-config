@@ -46,15 +46,15 @@
 		compatible = "zmk,keymap";
 
 		// Colemak on OS side
-		// |     |  Q  |  W  |  F  |  P  |  G  |   |  J  |  L  |  U  |  Y  |  Ä  |  ;  |
+		// |     |  Q  |  W  |  F  |  P  |  G  |   |  J  |  L  |  U  |  Y  |  Ä  |  Ö  |
 		// |     |  A  |  R  |  S  |  T  |  D  |   |  H  |  N  |  E  |  I  |  O  |  '  |
 		// |     |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |  ,  |  .  |  /  |     |
 		alpha_layer {
 			bindings = <
-&lt KPD TAB    &kp OC_Q      &kp OC_W     &kp OC_F     &kp OC_P     &kp OC_G      ___  &kp OC_J      &kp OC_L      &kp OC_U     &kp OC_Y     &kp OC_AU    &kp OC_SEMI
-&kp BSPC       &ml LM1 OC_A  &ml LM2 OC_R &ml LM3 OC_S &ml LM4 OC_T &ml RALT OC_D ___  &mr RALT OC_H &mr RM1 OC_N  &mr RM2 OC_E &mr RM3 OC_I &mr RM4 OC_O &kp SQT
-&mt LSHFT ESC  &lt KPD OC_Z  &kp OC_X     &kp OC_C     &kp OC_V     &kp OC_B      ___  &kp OC_K      &kp OC_M      &kp COMMA    &kp DOT      &lt NAV FSLH &mt RSHFT RET
-&lmt_kcd       &lt_spc NAV 0 &lmt_nav                                             ___  &mo NAV       &lt_spc SYM 0 &kp RSHFT
+&lt KPD TAB    &kp OC_Q      &kp OC_W      &kp OC_F     &kp OC_P     &kp OC_G      ___  &kp OC_J      &kp OC_L      &kp OC_U     &kp OC_Y     &kp OC_AU    &kp OC_OU
+&kp BSPC       &ml LM1 OC_A  &ml LM2 OC_R  &ml LM3 OC_S &ml LM4 OC_T &ml RALT OC_D ___  &mr RALT OC_H &mr RM1 OC_N  &mr RM2 OC_E &mr RM3 OC_I &mr RM4 OC_O &kp SQT
+&mt LSHFT ESC  &lt KPD OC_Z  &kp OC_X      &kp OC_C     &kp OC_V     &kp OC_B      ___  &kp OC_K      &kp OC_M      &kp COMMA    &kp DOT      &lt NAV FSLH &mt RSHFT RET
+&lmt_kcd       &lt_spc NAV 0 &lt_spc NAV 0                                         ___  &mo NAV       &mo SYM       &kp RSHFT
 			>;
 		};
 
@@ -63,40 +63,28 @@
 &trans   &kp FSLH      &kp SPACE  &kp HASH   &kp SPACE  &kp F4        ___  &kp INS    &kp PG_UP     &kp UP     &kp PG_DN  &none      &kp ESC
 &trans   &kp LM1       &kp LM2    &kp LM3    &kp LM4    &ml RALT DEL  ___  &kp BSPC   &kp LEFT      &kp DOWN   &kp RIGHT  &kp SPACE  &kp DEL
 &trans   &kp LC(Z)     &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp RET       ___  &none      &kp HOME      &none      &kp END    &kp FSLH   &trans
-&mo MAC  &lt_spc SYM 0 &trans                                         ___  &trans     &lm RSFT SYM  &mo FUN
+&mo MAC  &lt_spc SYM 0 &lt_spc SYM 0                                  ___  &trans     &lm RSFT SYM  &mo FUN
 			>;
 		};
 
-//   ~     !     @     #     $     %         ^     &     *     (     )     +
-// | `   | ä   |     | [   | ]   | €   |   | \   | +   | -   | =   | ö   |     |
-// |     | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | ;   |
-// |     | {   | }   | (   | )   |     |   |     | |   | ,   | .   | /   |     |
+//   ~     !     @     #     $     %         ^     &     *     (     )
+// | `   | !   | {   | $   | }   | %   |   | \   | (   | -   | )   | ;   | =   |
+// |     | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | "   |
+// |     | |   | [   | #   | ]   | €   |   |     | +   | ,   | .   | /   |     |
 		symbol_layer {
 			bindings = <
-&kp GRAVE     &kp OC_AU      &none      &kp LBKT   &kp RBKT    &kp EURO    ___ &kp BSLH    &kp PLUS   &kp MINUS  &kp EQUAL  &kp OC_OU  &none
-&trans        &ml LM1 N1     &ml LM2 N2 &ml LM3 N3 &ml LM4 N4  &ml RALT N5 ___ &mr RALT N6 &mr RM1 N7 &mr RM2 N8 &mr RM3 N9 &mr RM4 N0 &kp OC_SEMI
-&mt LSHFT ESC &kp LBRC       &kp RBRC   &kp LPAR   &kp RPAR    &none       ___ &none       &kp PIPE   &kp COMMA  &kp DOT    &kp FSLH   &trans
-&comma_spc    &kt_spc LSFT 0 &trans                                        ___ &trans      &trans     &mo FUN
+&kp GRAVE   &kp EXCL       &kp LBRC   &kp DOLLAR &kp RBRC   &kp PRCNT   ___ &kp BSLH    &kp LPAR   &kp MINUS  &kp RPAR   &kp OC_SEMI &kp EQUAL
+&trans      &ml LM1 N1     &ml LM2 N2 &ml LM3 N3 &ml LM4 N4 &ml RALT N5 ___ &mr RALT N6 &mr RM1 N7 &mr RM2 N8 &mr RM3 N9 &mr RM4 N0  &kp SQT
+&trans      &kp PIPE       &kp LBKT   &kp HASH   &kp RBKT   &kp EURO    ___ &none       &kp PLUS   &kp COMMA  &kp DOT    &kp FSLH    &trans
+&comma_spc  &kt_spc LSFT 0 &kt_spc LSFT 0                               ___ &trans      &trans     &mo FUN
 			>;
 		};
-
-////   ~     !     @     #     $     %         ^     &     *     (     )     +
-//// | `   | Ä   | [   | ]   | ;   | €   |   |     | +   | _   | +   | Ö   |     |
-//// |     | !   | @   | #   | $   | %   |   | ^   | &   | *   | (   | )   | |   |
-//// |     | {   | (   | )   | }   |     |   |     | |   | <   | >   | ?   |     |
-//			bindings = <
-//&kp GRAVE     &kp LS(OC_AU) &kp LBRC   &kp RBRC   &kp OC_SEMI &kp EURO    ___ &none       &kp PLUS   &kp MINUS  &kp EQUAL  &kp LS(OC_OU) &none
-//&trans        &kp LS(N1)    &kp LS(N2) &kp LS(N3) &kp LS(N4)  &kp LS(N5)  ___ &kp LS(N6)  &kp LS(N7) &kp LS(N8) &kp LS(N9) &kp LS(N0)    &kp PIPE
-//&mt LSHFT ESC &kp LBRC      &kp LPAR   &kp RPAR   &kp RBRC    &none       ___ &none       &kp BSLH   &kp COMMA  &kp DOT    &kp FSLH      &trans
-//&comma_spc    &trans        &trans                                        ___ &trans      &trans     &mo FUN
-//			>;
-//		};
 
 		function_layer {
 			bindings = <
 &none        &none        &none        &none        &studio_unlock &bootloader  ___  &kp C_VOL_UP     &kp F1  &kp F2  &kp F3  &kp F4  &kp PRINTSCREEN
-&none        &kp LM1      &kp LM2      &kp LM3      &kp LM4        &kp RALT     ___  &kp C_VOL_DN     &kp F5  &kp F6  &kp F7  &kp F8  &kp PAUSE_BREAK
-&out OUT_TOG &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_CLR   ___  &kp C_PLAY_PAUSE &kp F9  &kp F10 &kp F11 &kp F12 &unstick
+&out OUT_USB &kp LM1      &kp LM2      &kp LM3      &kp LM4        &kp RALT     ___  &kp C_VOL_DN     &kp F5  &kp F6  &kp F7  &kp F8  &kp PAUSE_BREAK
+&out OUT_BLE &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_CLR   ___  &kp C_PLAY_PAUSE &kp F9  &kp F10 &kp F11 &kp F12 &unstick
 &kp LSHFT    &none        &to DEF                                               ___  &to DEF          &none   &kp RSHFT
 			>;
 		};

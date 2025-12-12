@@ -60,12 +60,39 @@
 
 		navigation_layer {
 			bindings = <
-&trans   &kp FSLH      &kp SPACE  &kp HASH   &kp SPACE  &kp F4        ___  &kp INS      &kp PG_UP     &kp UP     &kp PG_DN  &kp DEL   &kp ESC
-&trans   &kp LM1       &kp LM2    &kp LM3    &kp LM4    &ml RALT DEL  ___  &kp BSPC     &kp LEFT      &kp DOWN   &kp RIGHT  &none     &kp SPACE
-&trans   &kp LC(Z)     &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp RET       ___  &none        &kp HOME      &none      &kp END    &kp FSLH  &trans
-&mo MAC  &lt_spc SYM 0 &lt_spc SYM 0                                  ___  &lm RSFT SYM &lm RSFT SYM  &mo FUN
+&trans   &kp FSLH      &kp SPACE  &kp HASH   &kp SPACE  &kp F4        ___  &none         &kp PG_UP     &kp UP     &kp PG_DN  &kp INS   &kp ESC
+&trans   &kp LM1       &kp LM2    &kp LM3    &kp LM4    &ml RALT DEL  ___  &kp BSPC      &kp LEFT      &kp DOWN   &kp RIGHT  &kp SPACE &kp DEL
+&trans   &kp LC(Z)     &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp RET       ___  &none         &kp HOME      &none      &kp END    &kp FSLH  &trans
+&mo MAC  &lt_spc SYM 0 &lt_spc SYM 0                                  ___  &mom RSFT SYM &mom RSFT SYM &mo FUN
 			>;
 		};
+
+//   ~     !     @     #     $     %
+//         ^     &     *     (     )
+// | `   | 1   | 2   | 3   | 4   | 5   |   |     | |   | -   | +   | ;   | =   |
+// |     | 6   | 7   | 8   | 9   | 0   |   | \   | {   | (   | )   | }   | '   |
+// |     |     | [   | ]   |     |     |   |     | $   | ,   | .   | /   |     |
+		symbol_layer {
+			bindings = <
+&kp GRAVE   &kp N1         &kp N2     &kp N3     &kp N4     &kp N5      ___ &none         &kp PIPE     &kp MINUS    &kp PLUS     &kp OC_SEMI  &kp EQUAL
+&trans      &ml LM1 N6     &ml LM2 N7 &ml LM3 N8 &ml LM4 N9 &ml RALT N0 ___ &mr RALT BSLH &mr RM1 LBRC &mr RM2 LPAR &mr RM3 RPAR &mr RM4 RBRC &kp SQT
+&trans      &none          &kp LBKT   &kp RBKT   &none      &none       ___ &none         &kp DLLR     &kp COMMA    &kp DOT      &kp FSLH     &trans
+&comma_spc  &kt_spc LSFT 0 &kt_spc LSFT 0                               ___ &trans        &trans       &mo FUN
+			>;
+		};
+
+////   ~     !     @     #     $     %         ^     &     *     (     )
+//// | `   | !   | &   | $   | {   | %   |   | ^   | }   | -   | +   | ;   | =   |
+//// |     | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | '   |
+//// |     | |   | \   | #   | (   | [   |   | ]   | )   | ,   | .   | /   |     |
+//		symbol_layer {
+//			bindings = <
+//&kp GRAVE   &kp EXCL       &kp AMPS   &kp DLLR   &kp LBRC   &kp PRCNT   ___ &kp CARET   &kp RBRC   &kp MINUS  &kp PLUS   &kp OC_SEMI &kp EQUAL
+//&trans      &ml LM1 N1     &ml LM2 N2 &ml LM3 N3 &ml LM4 N4 &ml RALT N5 ___ &mr RALT N6 &mr RM1 N7 &mr RM2 N8 &mr RM3 N9 &mr RM4 N0  &kp SQT
+//&trans      &kp PIPE       &kp BSLH   &kp HASH   &kp LPAR   &kp LBKT    ___ &kp RBKT    &kp RPAR   &kp COMMA  &kp DOT    &kp FSLH    &trans
+//&comma_spc  &kt_spc LSFT 0 &kt_spc LSFT 0                               ___ &trans      &trans     &mo FUN
+//			>;
+//		};
 
 ////   ~     !     @     #     $     %         ^     &     *     (     )
 //// | `   | !   | @   | #   | $   | %   |   | ^   | &   | -   | +   | ;   | =   |
@@ -79,19 +106,6 @@
 //&comma_spc  &kt_spc LSFT 0 &kt_spc LSFT 0                               ___ &trans      &trans     &mo FUN
 //			>;
 //		};
-
-//   ~     !     @     #     $     %         ^     &     *     (     )
-// | `   | !   | &   | $   | {   | %   |   | ^   | }   | -   | +   | ;   | =   |
-// |     | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | '   |
-// |     | |   | \   | #   | (   | [   |   | ]   | )   | ,   | .   | /   |     |
-		symbol_layer {
-			bindings = <
-&kp GRAVE   &kp EXCL       &kp AMPS   &kp DLLR   &kp LBRC   &kp PRCNT   ___ &kp CARET   &kp RBRC   &kp MINUS  &kp PLUS   &kp OC_SEMI &kp EQUAL
-&trans      &ml LM1 N1     &ml LM2 N2 &ml LM3 N3 &ml LM4 N4 &ml RALT N5 ___ &mr RALT N6 &mr RM1 N7 &mr RM2 N8 &mr RM3 N9 &mr RM4 N0  &kp SQT
-&trans      &kp PIPE       &kp BSLH   &kp HASH   &kp LPAR   &kp LBKT    ___ &kp RBKT    &kp RPAR   &kp COMMA  &kp DOT    &kp FSLH    &trans
-&comma_spc  &kt_spc LSFT 0 &kt_spc LSFT 0                               ___ &trans      &trans     &mo FUN
-			>;
-		};
 
 		function_layer {
 			bindings = <

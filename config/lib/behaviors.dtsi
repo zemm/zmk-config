@@ -147,9 +147,9 @@ dot_spc: dot_spc {
  *  - Layer to switch to
  *
  * Example:
- *  `&lm LSFT NUM`
+ *  `&mom LSFT NUM`
  */
-lm: lm {
+mom: mom {
 	compatible = "zmk,behavior-macro-two-param";
 	wait-ms = <0>;
 	tap-ms = <0>;

@@ -26,12 +26,11 @@
 #define NAV 1
 #define SYM 2
 #define FUN 3
-#define KCD 4
-#define KPD 5
-#define MAC 6
+#define MIR 4
+#define LNV 5
 
-#define LAYERS_ALL DEF SYM NAV MAC FUN KPD
-#define LAYERS_ALPHANUM DEF SYM KPD
+#define LAYERS_ALL DEF SYM NAV FUN MIR LNV
+#define LAYERS_ALPHANUM DEF SYM MIR
 
 / {
 	//conditional_layers {
@@ -51,12 +50,11 @@
 		// |     |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |  ,  |  .  |  /  |     |
 		alpha_layer {
 			bindings = <
-&lt KPD TAB    &kp OC_Q      &kp OC_W      &kp OC_F     &kp OC_P     &kp OC_G      ___  &kp OC_J      &kp OC_L      &kp OC_U     &kp OC_Y     &kp OC_AU    &kp OC_OU
+&kp TAB        &kp OC_Q      &kp OC_W      &kp OC_F     &kp OC_P     &kp OC_G      ___  &kp OC_J      &kp OC_L      &kp OC_U     &kp OC_Y     &kp OC_AU    &kp OC_OU
 &kp BSPC       &ml LM1 OC_A  &ml LM2 OC_R  &ml LM3 OC_S &ml LM4 OC_T &ml RALT OC_D ___  &mr RALT OC_H &mr RM1 OC_N  &mr RM2 OC_E &mr RM3 OC_I &mr RM4 OC_O &kp SQT
-&mt LSHFT ESC  &lt KPD OC_Z  &kp OC_X      &kp OC_C     &kp OC_V     &kp OC_B      ___  &kp OC_K      &kp OC_M      &kp COMMA    &kp DOT      &lt NAV FSLH &mt RSHFT RET
+&mt LSHFT ESC  &kp OC_Z      &kp OC_X      &kp OC_C     &kp OC_V     &kp OC_B      ___  &kp OC_K      &kp OC_M      &kp COMMA    &kp DOT      &lt NAV FSLH &mt RSHFT RET
 &mo SYM        &lt_spc NAV 0 &lt_spc NAV 0                                         ___  &mo SYM       &mo SYM       &mo NAV
 			>;
-// &lmt_kcd
 		};
 
 		navigation_layer {
@@ -64,7 +62,7 @@
 &trans   &kp FSLH      &kp SPACE  &kp HASH   &kp SPACE  &kp F4        ___  &none         &kp PG_UP     &kp UP     &kp PG_DN  &kp INS   &kp ESC
 &trans   &kp LM1       &kp LM2    &kp LM3    &kp LM4    &ml RALT DEL  ___  &kp BSPC      &kp LEFT      &kp DOWN   &kp RIGHT  &kp SPACE &kp DEL
 &trans   &kp LC(Z)     &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp RET       ___  &none         &kp HOME      &none      &kp END    &kp FSLH  &trans
-&mo MAC  &lt_spc SYM 0 &lt_spc SYM 0                                  ___  &mom RSFT SYM &mom RSFT SYM &mo FUN
+&trans   &lt_spc SYM 0 &lt_spc SYM 0                                  ___  &mom RSFT SYM &mom RSFT SYM &mo FUN
 			>;
 		};
 
@@ -79,6 +77,33 @@
 &trans      &ml LM1 N6     &ml LM2 N7 &ml LM3 N8 &ml LM4 N9 &ml RALT N0 ___ &mr RALT BSLH &mr RM1 PIPE &mr RM2 MINUS &mr RM3 PLUS &mr RM4 OC_SEMI &kp SQT
 &trans      &none          &none      &kp DLLR   &kp LBRC   &kp LBKT    ___ &kp RBKT      &kp RBRC     &kp COMMA     &kp DOT      &kp FSLH     &trans
 &comma_spc  &kt_spc LSFT 0 &kt_spc LSFT 0                               ___ &trans        &trans       &mo FUN
+			>;
+		};
+
+		function_layer {
+			bindings = <
+&out OUT_USB &kp SYSREQ   &none        &unstick     &studio_unlock &bootloader  ___  &kp C_VOL_UP     &kp F1  &kp F2  &kp F3  &kp F4  &kp PRINTSCREEN
+&kp CAPSLOCK &kp LM1      &kp LM2      &kp LM3      &kp LM4        &kp RALT     ___  &kp C_VOL_DN     &kp F5  &kp F6  &kp F7  &kp F8  &kp PAUSE_BREAK
+&out OUT_BLE &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_CLR   ___  &kp C_PLAY_PAUSE &kp F9  &kp F10 &kp F11 &kp F12 &kp SCROLLLOCK
+&none        &none        &none                                                 ___  &none            &none   &none
+			>;
+		};
+
+		mirror_layer {
+			bindings = <
+&kp OC_OU     &kp OC_AU    &kp OC_Y     &kp OC_U     &kp OC_L     &kp OC_J      ___ &none  &none  &none  &none  &none  &none
+&kp SQT       &ml LM1 OC_O &ml LM2 OC_I &ml LM3 OC_E &ml LM4 OC_N &ml RALT OC_H ___ &none  &none  &none  &none  &none  &none
+&mt RSHFT RET &kp FSLH     &kp DOT      &kp COMMA    &kp OC_M     &kp OC_K      ___ &none  &none  &none  &none  &none  &none
+&none         &none        &none                                                ___ &none  &none  &none
+			>;
+		};
+
+		left_nav_layer {
+			bindings = <
+&trans  &none      &kp PG_UP  &kp UP     &kp PG_DN  &none         ___ &none  &none  &none  &none  &none  &none
+&trans  &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL       ___ &none  &none  &none  &none  &none  &none
+&trans  &none      &kp HOME   &none      &kp END    &kp KP_ENTER  ___ &none  &none  &none  &none  &none  &none
+&none   &none      &none                                          ___ &none  &none  &none
 			>;
 		};
 
@@ -135,42 +160,6 @@
 //&comma_spc  &kt_spc LSFT 0 &kt_spc LSFT 0                               ___ &trans      &trans     &mo FUN
 //			>;
 //		};
-
-		function_layer {
-			bindings = <
-&none        &none        &none        &none        &studio_unlock &bootloader  ___  &kp C_VOL_UP     &kp F1  &kp F2  &kp F3  &kp F4  &kp PRINTSCREEN
-&out OUT_USB &kp LM1      &kp LM2      &kp LM3      &kp LM4        &kp RALT     ___  &kp C_VOL_DN     &kp F5  &kp F6  &kp F7  &kp F8  &kp PAUSE_BREAK
-&out OUT_BLE &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_CLR   ___  &kp C_PLAY_PAUSE &kp F9  &kp F10 &kp F11 &kp F12 &unstick
-&none        &none        &none                                                 ___  &none            &none   &none
-			>;
-		};
-
-		kicad_layer {
-			bindings = <
-&trans  &kp LEFT   &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp RIGHT     ___ &none  &none  &none  &none  &none  &none
-&trans  &kp KP_DOT &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp DOT       ___ &none  &none  &none  &none  &none  &none
-&trans  &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_ENTER  ___ &none  &none  &none  &none  &none  &none
-&to DEF &none      &none                                          ___ &none  &none  &none
-			>;
-		};
-
-		keypad_layer {
-			bindings = <
-&trans    &kp LALT   &kp PG_UP  &kp UP    &kp PG_DN  &none    ___  &kp KP_NLCK &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_MINUS &kp KP_DIVIDE
-&trans    &kp LCTRL  &kp LEFT   &kp DOWN  &kp RIGHT  &kp DEL  ___  &kp KP_DOT  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS  &kp KP_MULTIPLY
-&trans    &kp LGUI   &kp COMMA  &kp SPACE &kp DOT    &kp RET  ___  &none       &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_ENTER &kp KP_ENTER
-&tog KPD  &trans     &trans                                   ___  &trans      &kp KP_N0  &kp KP_DOT
-			>;
-		};
-
-		macro_layer {
-			bindings = <
-&trans  &none  &none  &arrow_pipe_l  &arrow_fat_r   &none  ___  &none  &none  &block_brc_start  &block_brc_end  &le_spaced  &eq_spaced
-&trans  &none  &none  &arrow_fat_l   &arrow_pipe_r  &none  ___  &none  &none  &block_par_start  &block_par_end  &ge_spaced  &neq_spaced
-&trans  &none  &none  &arrow_slim_l  &arrow_slim_r  &none  ___  &none  &none  &block_bkt_start  &block_bkt_end  &none       &none
-&none   &none  &none                                       ___  &none  &none  &none
-			>;
-		};
 	};
 
 	// -----------------------------------------------------------------------------------------
@@ -184,12 +173,18 @@
 		#include "lib/combos.dtsi"
 
 		// Layer combos
-				//combo_mo_fun {
-		//	//timeout-ms = <20>;
-		//	bindings = <&mo FUN>;
-		//	key-positions = <36 41>;
-		//	layers = <DEF>;
-		//};
+		combo_mo_mir {
+			//timeout-ms = <20>;
+			bindings = <&mo MIR>;
+			key-positions = <36 37>;
+			//layers = <DEF>;
+		};
+		combo_mo_mir_2 {
+			//timeout-ms = <20>;
+			bindings = <&mo MIR>;
+			key-positions = <37 38>;
+			//layers = <DEF>;
+		};
 
 		//COMBO_S(backspace, &kp BSPC, 13 14, LAYERS_ALPHANUM)
 
@@ -208,49 +203,49 @@
 		////COMBO_S(ret, &kp RET, 33 34, LAYERS_ALL)
 
 		// left hand triplets
-		combo_scroll_lock {
-			timeout-ms = <20>;
-			bindings = <&kp SCROLLLOCK>;
-			key-positions = <1 2 3>;
-		};
-		combo_print_screen {
-			timeout-ms = <20>;
-			bindings = <&kp PRINTSCREEN>;
-			key-positions = <2 3 4>;
-		};
+		//combo_scroll_lock {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp SCROLLLOCK>;
+		//	key-positions = <1 2 3>;
+		//};
+		//combo_print_screen {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp PRINTSCREEN>;
+		//	key-positions = <2 3 4>;
+		//};
 		combo_caps_word_left {
 			timeout-ms = <30>;
 			bindings = <&caps_word>;
 			key-positions = <14 15 16>;
 		};
-		combo_mo_keypad {
-			timeout-ms = <30>;
-			bindings = <&mo KPD>;
-			key-positions = <26 27 28>;
-			layers = <DEF>;
-		};
+		//combo_mo_keypad {
+		//	timeout-ms = <30>;
+		//	bindings = <&mo KPD>;
+		//	key-positions = <26 27 28>;
+		//	layers = <DEF>;
+		//};
 		// right hand triplets
-		combo_pause_break {
-			timeout-ms = <20>;
-			bindings = <&kp PAUSE_BREAK>;
-			key-positions = <7 8 9>;
-		};
+		//combo_pause_break {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp PAUSE_BREAK>;
+		//	key-positions = <7 8 9>;
+		//};
 		combo_caps_word_right {
 			timeout-ms = <20>;
 			bindings = <&caps_word>;
 			key-positions = <19 20 21>;
 			layers = <DEF>;
 		};
-		combo_caps_lock {
-			timeout-ms = <20>;
-			bindings = <&kp CAPSLOCK>;
-			key-positions = <31 32 33>;
-		};
-		combo_sysreq {
-			timeout-ms = <20>;
-			bindings = <&kp SYSREQ>;
-			key-positions = <8 9 10>;
-		};
+		//combo_caps_lock {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp CAPSLOCK>;
+		//	key-positions = <31 32 33>;
+		//};
+		//combo_sysreq {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp SYSREQ>;
+		//	key-positions = <8 9 10>;
+		//};
 	};
 
 	macros {

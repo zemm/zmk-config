@@ -72,13 +72,13 @@ mn: momentary_nav_mod_tap {
 
 // Tap dances
 
-lmt_nav_kpd: tt_layer_momentary_toggle_nav_kpd {
-	compatible = "zmk,behavior-tap-dance";
-	label = "TT_LAYER_MOMENTARY_TOGGLE_NAV_KPD";
-	#binding-cells = <0>;
-	tapping-term-ms = <200>;
-	bindings = <&mo NAV>, <&mo KPD>;
-};
+//lmt_nav_kpd: tt_layer_momentary_toggle_nav_kpd {
+//	compatible = "zmk,behavior-tap-dance";
+//	label = "TT_LAYER_MOMENTARY_TOGGLE_NAV_KPD";
+//	#binding-cells = <0>;
+//	tapping-term-ms = <200>;
+//	bindings = <&mo NAV>, <&mo KPD>;
+//};
 
 lmt_nav: tt_layer_momentary_toggle_nav {
 	compatible = "zmk,behavior-tap-dance";
@@ -88,13 +88,13 @@ lmt_nav: tt_layer_momentary_toggle_nav {
 	bindings = <&mo NAV>, <&to NAV>;
 };
 
-lmt_kcd: tt_layer_momentary_toggle_kcd {
-	compatible = "zmk,behavior-tap-dance";
-	label = "TT_LAYER_MOMENTARY_TOGGLE_KCD";
-	#binding-cells = <0>;
-	tapping-term-ms = <200>;
-	bindings = <&mo KCD>, <&to KCD>;
-};
+//lmt_kcd: tt_layer_momentary_toggle_kcd {
+//	compatible = "zmk,behavior-tap-dance";
+//	label = "TT_LAYER_MOMENTARY_TOGGLE_KCD";
+//	#binding-cells = <0>;
+//	tapping-term-ms = <200>;
+//	bindings = <&mo KCD>, <&to KCD>;
+//};
 
 //td_comma_commaspace: tap_dance_comma_commaspace {
 //	compatible = "zmk,behaviour-tap-dance";

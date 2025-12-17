@@ -46,6 +46,7 @@ mr: right_hand_positional_hold_tap {
 	hold-trigger-on-release; // delay positional check until key-release
 };
 
+
 // Layers with mods
 ms: momentary_sym_mod_tap {
 	compatible = "zmk,behavior-hold-tap";

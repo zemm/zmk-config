@@ -20,7 +20,12 @@ ltt: behavior_layer_tap_tap_preferred {
 	bindings = <&mo>, <&kp>;
 };
 
-// Urob's timeless HRM https://github.com/urob/zmk-config
+
+/**
+ * Positional hold-tap behaviors for homerow mods
+ *
+ * Urob's timeless HRM https://github.com/urob/zmk-config
+ */
 ml: left_hand_positional_hold_tap {
 	compatible = "zmk,behavior-hold-tap";
 	label = "HOMEROW_MODS_LEFT";
@@ -47,7 +52,9 @@ mr: right_hand_positional_hold_tap {
 };
 
 
-// Layers with mods
+/**
+ * Layers with mods
+ */
 ms: momentary_sym_mod_tap {
 	compatible = "zmk,behavior-hold-tap";
 	label = "MOMENTARY_SYM_MOD_TAP";
@@ -70,7 +77,10 @@ mn: momentary_nav_mod_tap {
 	bindings = <&nav_with_mod>, <&kp>;
 };
 
-// Tap dances
+
+/**
+ * Tap dances
+ */
 
 //lmt_nav_kpd: tt_layer_momentary_toggle_nav_kpd {
 //	compatible = "zmk,behavior-tap-dance";
@@ -104,17 +114,12 @@ lmt_nav: tt_layer_momentary_toggle_nav {
 //	bingings = <&mo COMMA>, <&comma_spc>;
 //};
 
-kt_spc: kt_spc {
-	compatible = "zmk,behavior-hold-tap";
-	#binding-cells = <2>;
-	bindings = <&kp>, <&spc_morph>;
-	flavor = "balanced";
-	tapping-term-ms = <200>;
-	quick-tap-ms = <175>;
-};
 
-// From Urob's config
-// Tap: space | Shift + tap: dot -> space -> sticky shift | Hold: nav layer.
+/**
+ * From Urob's space configs:
+ * Tap: space | Shift + tap: dot -> space -> sticky shift | Hold: nav layer.
+ */
+/*
 lt_spc: lt_spc {
 	compatible = "zmk,behavior-hold-tap";
 	#binding-cells = <2>;
@@ -123,14 +128,21 @@ lt_spc: lt_spc {
 	tapping-term-ms = <200>;
 	quick-tap-ms = <175>;
 };
-
+kt_spc: kt_spc {
+	compatible = "zmk,behavior-hold-tap";
+	#binding-cells = <2>;
+	bindings = <&kp>, <&spc_morph>;
+	flavor = "balanced";
+	tapping-term-ms = <200>;
+	quick-tap-ms = <175>;
+};
+// Morphing space behavior: tap space, shift+tap dot_space macro
 spc_morph: spc_morph {
 	compatible = "zmk,behavior-mod-morph";
 	#binding-cells = <0>;
 	mods = <(MOD_LSFT | MOD_RSFT)>;                      \
 	bindings = <&kp SPACE>, <&dot_spc>;
 };
-
 dot_spc: dot_spc {
 	compatible = "zmk,behavior-macro";
 	#binding-cells = <0>;
@@ -138,6 +150,8 @@ dot_spc: dot_spc {
 	wait-ms = <0>;
 	tap-ms = <5>;
 };
+*/
+
 
 /**
  * Temporarily switches to a layer (`&mo`) while a modifier is held.

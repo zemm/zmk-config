@@ -49,6 +49,7 @@
 		// |     |  A  |  R  |  S  |  T  |  D  |   |  H  |  N  |  E  |  I  |  O  |  '  |
 		// |     |  Z  |  X  |  C  |  V  |  B  |   |  K  |  M  |  ,  |  .  |  /  |     |
 		alpha_layer {
+			display-name = "Alphanumeric";
 			bindings = <
 &kp TAB        &kp OC_Q      &kp OC_W      &kp OC_F     &kp OC_P     &kp OC_G      ___  &kp OC_J      &kp OC_L      &kp OC_U     &kp OC_Y     &kp OC_AU    &kp OC_OU
 &kp BSPC       &ml LM1 OC_A  &ml LM2 OC_R  &ml LM3 OC_S &ml LM4 OC_T &ml RALT OC_D ___  &mr RALT OC_H &mr RM1 OC_N  &mr RM2 OC_E &mr RM3 OC_I &mr RM4 OC_O &kp SQT
@@ -58,6 +59,7 @@
 		};
 
 		navigation_layer {
+			display-name = "Navigation";
 			bindings = <
 &trans   &kp FSLH      &kp SPACE  &kp HASH   &kp SPACE  &kp F4        ___  &none         &kp PG_UP     &kp UP     &kp PG_DN  &kp INS   &kp ESC
 &trans   &kp LM1       &kp LM2    &kp LM3    &kp LM4    &ml RALT DEL  ___  &kp BSPC      &kp LEFT      &kp DOWN   &kp RIGHT  &kp SPACE &kp DEL
@@ -72,6 +74,7 @@
 // |     | 6   | 7   | 8   | 9   | 0   |   | `   | \   | -   | +   | ;   | '   |
 // |     |     | |   | $   | {   | [   |   | ]   | }   | ,   | .   | /   |     |
 		symbol_layer {
+			display-name = "Symbols";
 			bindings = <
 &kp GRAVE   &kp N1         &kp N2         &kp N3     &kp N4     &kp N5      ___ &kp N6         &kp N7        &kp N8        &kp N9        &kp N0          &kp EQUAL
 &trans      &ml LM1 N6     &ml LM2 N7     &ml LM3 N8 &ml LM4 N9 &ml RALT N0 ___ &mr RALT GRAVE &mr RM1 BSLH  &mr RM2 MINUS &mr RM3 PLUS  &mr RM4 OC_SEMI &kp SQT
@@ -81,6 +84,7 @@
 		};
 
 		function_layer {
+			display-name = "Function";
 			bindings = <
 &out OUT_USB &kp SYSREQ   &none        &unstick     &studio_unlock &bootloader  ___  &kp C_VOL_UP     &kp F1  &kp F2  &kp F3  &kp F4  &kp PRINTSCREEN
 &kp CAPSLOCK &kp LM1      &kp LM2      &kp LM3      &kp LM4        &kp RALT     ___  &kp C_VOL_DN     &kp F5  &kp F6  &kp F7  &kp F8  &kp PAUSE_BREAK
@@ -90,6 +94,7 @@
 		};
 
 		mirror_layer {
+			display-name = "Mirrored sides";
 			bindings = <
 &kp OC_OU     &kp OC_AU    &kp OC_Y     &kp OC_U     &kp OC_L     &kp OC_J      ___ &none  &none  &none  &none  &none  &none
 &kp SQT       &ml LM1 OC_O &ml LM2 OC_I &ml LM3 OC_E &ml LM4 OC_N &ml RALT OC_H ___ &none  &none  &none  &none  &none  &none
@@ -99,6 +104,7 @@
 		};
 
 		left_nav_layer {
+			display-name = "Left-hand Nav";
 			bindings = <
 &trans  &none      &kp PG_UP  &kp UP     &kp PG_DN  &none         ___ &none  &none  &none  &none  &none  &none
 &trans  &none      &kp LEFT   &kp DOWN   &kp RIGHT  &kp DEL       ___ &none  &none  &none  &none  &none  &none

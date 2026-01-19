@@ -61,7 +61,7 @@
 		navigation_layer {
 			display-name = "Navigation";
 			bindings = <
-&trans   &kp FSLH      &kp SPACE  &kp HASH   &kp SPACE  &kp F4        ___  &none         &kp PG_UP     &kp UP     &kp PG_DN  &kp INS   &kp ESC
+&trans   &kp FSLH      &kp SPACE  &kp HASH   &kp SPACE  &kp F4        ___  &kp INS       &kp PG_UP     &kp UP     &kp PG_DN  &kp INS   &kp ESC
 &trans   &kp LM1       &kp LM2    &kp LM3    &kp LM4    &ml RALT DEL  ___  &kp BSPC      &kp LEFT      &kp DOWN   &kp RIGHT  &kp SPACE &kp DEL
 &trans   &kp LC(Z)     &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp RET       ___  &none         &kp HOME      &none      &kp END    &kp FSLH  &trans
 &trans   &lt NAV SPACE &lt NAV SPACE                                  ___  &mom RSFT SYM &mom RSFT SYM &mo FUN

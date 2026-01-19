@@ -33,6 +33,10 @@
         firmware = firmware-aurora_corne;
       };
 
+      flash-kyria = zmk-nix.packages.${system}.flash.override {
+        firmware = firmware-kyria;
+      };
+
       flash-tbk_xiao_ble = zmk-nix.packages.${system}.flash.override {
         firmware = firmware-tbk_xiao_ble;
       };
@@ -58,6 +62,14 @@
         name = "firmware-aurora_corne";
         board = "nice_nano_v2";
         shield = "splitkb_aurora_corne_%PART%";
+        src = nixpkgs.lib.sourceFilesBySuffices self sourceFileList;
+        inherit zephyrDepsHash;
+      };
+
+      firmware-kyria = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
+        name = "firmware-kyria";
+        board = "nice_nano_v2";
+        shield = "kyria_rev2_%PART%";
         src = nixpkgs.lib.sourceFilesBySuffices self sourceFileList;
         inherit zephyrDepsHash;
       };

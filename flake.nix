@@ -41,6 +41,10 @@
         firmware = firmware-tbk_xiao_ble;
       };
 
+      flash-xiao_ble-reset = zmk-nix.packages.${system}.flash.override {
+        firmware = firmware-xiao_ble-reset;
+      };
+
       # Firmwares
       firmware-reviung41 = zmk-nix.legacyPackages.${system}.buildKeyboard {
         name = "firmware-reviung41";
@@ -78,6 +82,14 @@
         name = "firmware-tbk_xiao_ble";
         board = "seeeduino_xiao_ble";
         shield = "tbk_xiao_ble_%PART%";
+        src = nixpkgs.lib.sourceFilesBySuffices self sourceFileList;
+        inherit zephyrDepsHash;
+      };
+
+      firmware-xiao_ble-reset = zmk-nix.legacyPackages.${system}.buildKeyboard {
+        name = "firmware-xiao_ble-reset";
+        board = "seeeduino_xiao_ble";
+        shield = "settings_reset";
         src = nixpkgs.lib.sourceFilesBySuffices self sourceFileList;
         inherit zephyrDepsHash;
       };

@@ -1,4 +1,4 @@
-TARGETS=aurora_corne reviung41 tbk_xiao_ble
+TARGETS=aurora_corne reviung41 tbk_xiao_ble xiao_ble-reset
 
 .PHONY: all build upload clean update
 

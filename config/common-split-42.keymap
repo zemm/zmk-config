@@ -27,12 +27,13 @@
 #define DEF 0
 #define NAV 1
 #define SYM 2
-#define FUN 3
-#define MIR 4
-#define LNV 5
+#define LSYM 3
+#define FUN 4
+#define MIR 5
+#define LNAV 6
 
-#define LAYERS_ALL DEF SYM NAV FUN MIR LNV
-#define LAYERS_ALPHANUM DEF SYM MIR
+#define LAYERS_ALL DEF SYM LSYM NAV FUN MIR LNAV
+#define LAYERS_ALPHANUM DEF SYM LSYM MIR
 
 / {
 	//conditional_layers {
@@ -56,7 +57,7 @@
 &kp TAB        &kp OC_Q      &kp OC_W      &kp OC_F     &kp OC_P     &kp OC_G      ___  &kp OC_J      &kp OC_L      &kp OC_U     &kp OC_Y     &kp OC_AU    &kp OC_OU
 &kp BSPC       &ml LM1 OC_A  &ml LM2 OC_R  &ml LM3 OC_S &ml LM4 OC_T &ml RALT OC_D ___  &mr RALT OC_H &mr RM1 OC_N  &mr RM2 OC_E &mr RM3 OC_I &mr RM4 OC_O &kp SQT
 &mt LSHFT ESC  &kp OC_Z      &kp OC_X      &kp OC_C     &kp OC_V     &kp OC_B      ___  &kp OC_K      &kp OC_M      &kp COMMA    &kp DOT      &lt NAV FSLH &mt RSHFT RET
-&mo SYM        &lt NAV SPACE &lt NAV SPACE                                         ___  &mo SYM       &mo SYM       &mo NAV
+&mo LSYM       &lt NAV SPACE &lt NAV SPACE                                         ___  &mo SYM       &mo SYM       &mo NAV
 			>;
 		};
 
@@ -70,18 +71,43 @@
 			>;
 		};
 
-//   ~     !     @     #     $     %
-//         ^     &     *     (     )         ^     &     *     (     )     +
+//   ~     !     @     #     $     %         ^     &     *     (     )     +
 // | `   | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 0   | =   |
-// |     | 6   | 7   | 8   | 9   | 0   |   | `   | \   | -   | +   | ;   | '   |
-// |     |     | |   | $   | {   | [   |   | ]   | }   | ,   | .   | /   |     |
+// |     | |   | #   | [   | ]   | %   |   | `   | \   | -   | +   | ;   | '   |
+// |     |     | $   | {   | }   |     |   |     |     | ,   | .   | /   |     |
 		symbol_layer {
 			display-name = "Symbols";
 			bindings = <
-&kp GRAVE   &kp N1         &kp N2         &kp N3     &kp N4     &kp N5      ___ &kp N6         &kp N7        &kp N8        &kp N9        &kp N0          &kp EQUAL
-&trans      &ml LM1 N6     &ml LM2 N7     &ml LM3 N8 &ml LM4 N9 &ml RALT N0 ___ &mr RALT GRAVE &mr RM1 BSLH  &mr RM2 MINUS &mr RM3 PLUS  &mr RM4 OC_SEMI &kp SQT
-&kp LSHFT   &none          &kp PIPE       &kp DLLR   &kp LBRC   &kp LBKT    ___ &kp RBKT       &kp RBRC      &kp COMMA     &kp DOT       &kp FSLH        &kp RSHFT
-&comma_spc  &mt LSFT SPACE &mt LSFT SPACE                                   ___ &trans         &trans        &mo FUN
+&kp GRAVE  &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         ___ &kp N6         &kp N7        &kp N8        &kp N9        &kp N0          &kp EQUAL
+&trans     &ml LM1 PIPE &ml LM2 HASH &ml LM3 LBKT &ml LM4 RBKT &ml RALT PRCNT ___ &mr RALT GRAVE &mr RM1 BSLH  &mr RM2 MINUS &mr RM3 PLUS  &mr RM4 OC_SEMI &kp SQT
+&kp LSHFT  &none        &kp DLLR     &kp LBRC     &kp RBRC     &none          ___ &kp RBKT       &kp RBRC      &kp COMMA     &kp DOT       &kp FSLH        &kp RSHFT
+&comma_spc &mt LSFT SPACE &mt LSFT SPACE                                      ___ &trans         &trans        &mo FUN
+			>;
+		};
+
+//// | /   | ,   | 7   | 8   | 9   | *   |
+//// |     | .   | 4   | 5   | 6   | 0   |
+//// | RET | -   | 1   | 2   | 3   | +   |
+//		left_symbol_layer {
+//			display-name = "Left-hand symbols";
+//			bindings = <
+//&kp FSLH      &ml LM1 COMMA  &ml LM2 N7     &ml LM3 N8  &ml LM4 N9  &ml RALT STAR ___ &trans &trans &trans &trans &trans &trans
+//&trans        &ml LM1 DOT    &ml LM2 N4     &ml LM3 N5  &ml LM4 N6  &ml RALT N0   ___ &trans &trans &trans &trans &trans &trans
+//&mt LSHFT RET &ml LM1 MINUS  &ml LM2 N1     &ml LM3 N2  &ml LM4 N3  &ml RALT PLUS ___ &trans &trans &trans &trans &trans &trans
+//&none         &mt LSFT SPACE &mt LSFT SPACE                                       ___ &trans &trans &trans
+//			>;
+//		};
+
+// | /   | 1   | 2   | 3   | 4   | 5   |
+// |     | 6   | 7   | 8   | 9   | 0   |
+// |     | -   | ,   | .   | +   | *   |
+		left_symbol_layer {
+			display-name = "Left-hand symbols";
+			bindings = <
+&kp FSLH      &ml LM1 N1     &ml LM2 N2     &ml LM3 N3   &ml LM4 N4   &ml RALT N5   ___ &trans &trans &trans &trans &trans &trans
+&trans        &ml LM1 N6     &ml LM2 N7     &ml LM3 N8   &ml LM4 N9   &ml RALT N0   ___ &trans &trans &trans &trans &trans &trans
+&mt LSHFT RET &ml LM1 MINUS  &ml LM2 COMMA  &ml LM3 DOT  &ml LM4 PLUS &ml RALT STAR ___ &trans &trans &trans &trans &trans &trans
+&comma_spc    &mt LSFT SPACE &mt LSFT SPACE                                         ___ &trans &trans &trans
 			>;
 		};
 

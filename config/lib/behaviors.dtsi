@@ -35,7 +35,7 @@ ml: left_hand_positional_hold_tap {
 	tapping-term-ms = <300>;
 	quick-tap-ms = <175>; // repeat on tap-into-hold
 	bindings = <&kp>, <&kp>;
-	hold-trigger-key-positions = <KEYS_R KEYS_T>;
+	hold-trigger-key-positions = <KEYS_R KEYS_T NONALPHAS_L>;
 	hold-trigger-on-release; // delay positional check until key-release
 };
 mr: right_hand_positional_hold_tap {
@@ -47,7 +47,7 @@ mr: right_hand_positional_hold_tap {
 	tapping-term-ms = <300>;
 	quick-tap-ms = <175>; // repeat on tap-into-hold
 	bindings = <&kp>, <&kp>;
-	hold-trigger-key-positions = <KEYS_L KEYS_T>;
+	hold-trigger-key-positions = <KEYS_L KEYS_T NONALPHAS_R>;
 	hold-trigger-on-release; // delay positional check until key-release
 };
 

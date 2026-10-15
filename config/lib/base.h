@@ -17,5 +17,6 @@
 // Shortenings
 #define KP_MUL KP_MULTIPLY
 #define KP_DIV KP_DIVIDE
+#define KP_RET KP_ENTER
 #define EURO RA(N5)
 #define ___

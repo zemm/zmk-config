@@ -16,10 +16,12 @@
       ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ".h"
     ];
 
-    zephyrDepsHash = "sha256-Fz6NJI4wmRiv2x3KSrXF7Gk92zQZOjzBlP96g562mFQ=";
+    zephyrDepsHash = "sha256-F03oJNHWmHlpFc1JHyvqX02WL+Pg6ZcNWpCaiDfJANA=";
   in {
     packages = forAllSystems (system: rec {
-      default = firmware-aurora_corne;
+      default = firmware-tbk_xiao_ble;
+
+      firmware = firmware-tbk_xiao_ble;
 
       # Bump West dependencies zephyrDepsHash of .#firmware
       update = zmk-nix.packages.${system}.update;

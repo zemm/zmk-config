@@ -1,6 +1,6 @@
 TARGETS=aurora_corne reviung41 tbk_xiao_ble xiao_ble-reset
 
-.PHONY: all build upload clean update
+.PHONY: all build upload clean update tag
 
 build: $(addprefix build/,$(TARGETS))
 
@@ -27,6 +27,11 @@ clean:
 
 shell:
 	nix develop
+
+tag:
+	@last=$$(git tag -l 'v*' | grep -E '^v[0-9]+$$' | sed 's/^v//' | sort -n | tail -n1); \
+	next=v$$(( $${last:-0} + 1 )); \
+	git tag -a "$$next" && echo "Created tag $$next"
 
 update: update-flake update-firmware
 

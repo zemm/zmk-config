@@ -22,4 +22,4 @@ include:
     shield: reviung41
 
   - board: sparkfun_pro_micro_rp2040
-    shield: reviung41z
+    shield: reviung41rgb

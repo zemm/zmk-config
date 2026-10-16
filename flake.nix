@@ -31,6 +31,10 @@
         firmware = firmware-reviung41;
       };
 
+      flash-reviung41rgb = zmk-nix.packages.${system}.flash.override {
+        firmware = firmware-reviung41rgb;
+      };
+
       flash-aurora_corne = zmk-nix.packages.${system}.flash.override {
         firmware = firmware-aurora_corne;
       };
@@ -56,10 +60,10 @@
         inherit zephyrDepsHash;
       };
 
-      firmware-reviung41z = zmk-nix.legacyPackages.${system}.buildKeyboard {
-        name = "firmware-reviung41z";
+      firmware-reviung41rgb = zmk-nix.legacyPackages.${system}.buildKeyboard {
+        name = "firmware-reviung41rgb";
         board = "sparkfun_pro_micro_rp2040";
-        shield = "reviung41z";
+        shield = "reviung41rgb";
         src = nixpkgs.lib.sourceFilesBySuffices self sourceFileList;
         inherit zephyrDepsHash;
       };

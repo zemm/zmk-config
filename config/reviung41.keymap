@@ -24,4 +24,4 @@
 #define KM_THUMBS(L_SEC, L_PRI, L_AUX, MIDDLE, R_AUX, R_PRI, R_SEC) \
     L_SEC L_PRI ___ MIDDLE ___ R_PRI R_SEC
 
-#include "keymap/base.keymap"
+#include "keymap/keymap.dtsi"

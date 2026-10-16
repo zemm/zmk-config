@@ -1,0 +1,93 @@
+/**
+ *
+ */
+
+/ {
+    /**
+     * https://zmk.dev/docs/keymaps/combos
+     *
+	 * -----------------------------------------------------------------------------------------
+	 * | 0   | 1   | 2   | 3   | 4   | 5   |   | 6   | 7   | 8   | 9   | 10  | 11  |
+	 * | 12  | 13  | 14  | 15  | 16  | 17  |   | 18  | 19  | 20  | 21  | 22  | 23  |
+	 * | 24  | 25  | 26  | 27  | 28  | 29  |   | 30  | 31  | 32  | 33  | 34  | 35  |
+	 *                   | 36  | 37  | 38  |   | 39  | 40  | 41  |
+     */
+	combos {
+		compatible = "zmk,combos";
+
+		// Layer combos
+		combo_mo_mirror_l {
+			//timeout-ms = <20>;
+			bindings = <&mo MIR>;
+			key-positions = <K_TL_PRI K_TL_SEC>;
+			layers = <DEF>;
+		};
+		combo_mo_mirror_r {
+			//timeout-ms = <20>;
+			bindings = <&mo MIR>;
+			key-positions = <K_TL_PRI K_TL_SEC>;
+			layers = <DEF>;
+		};
+
+		//COMBO_S(backspace, &kp BSPC, 13 14, LAYERS_ALPHANUM)
+
+		//COMBO_L(lbkt, &kp LBKT, 1 2, LAYERS_ALPHANUM)
+		//COMBO_L(semi, &kp OC_SEMI, 2 3, LAYERS_ALPHANUM)
+		//COMBO_S(rbkt, &kp RBKT, 3 4, LAYERS_ALPHANUM)
+		//COMBO_L(lpar, &kp LPAR, 25 26, LAYERS_ALPHANUM)
+		//COMBO_S(colon, &kp OC_COLON, 26 27, LAYERS_ALPHANUM)
+		//COMBO_S(rpar, &kp RPAR, 27 28, LAYERS_ALPHANUM)
+
+		//COMBO_S(lbrc, &kp LBRC, 7 8, LAYERS_ALPHANUM)
+		//COMBO_L(rbrc, &kp RBRC, 9 10, LAYERS_ALPHANUM)
+		////COMBO_S(semi, &kp OC_SEMI, 9 10, LAYERS_ALPHANUM)
+		//COMBO_S(lt, &kp LT, 31 32, LAYERS_ALPHANUM)
+		//COMBO_L(gt, &kp GT, 33 34, LAYERS_ALPHANUM)
+		////COMBO_S(ret, &kp RET, 33 34, LAYERS_ALL)
+
+		// left hand triplets
+		//combo_scroll_lock {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp SCROLLLOCK>;
+		//	key-positions = <1 2 3>;
+		//};
+		//combo_print_screen {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp PRINTSCREEN>;
+		//	key-positions = <2 3 4>;
+		//};
+		combo_caps_word_left {
+			timeout-ms = <30>;
+			bindings = <&caps_word>;
+			key-positions = <14 15 16>;
+		};
+		//combo_mo_keypad {
+		//	timeout-ms = <30>;
+		//	bindings = <&mo KPD>;
+		//	key-positions = <26 27 28>;
+		//	layers = <DEF>;
+		//};
+		// right hand triplets
+		//combo_pause_break {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp PAUSE_BREAK>;
+		//	key-positions = <7 8 9>;
+		//};
+		combo_caps_word_right {
+			timeout-ms = <20>;
+			bindings = <&caps_word>;
+			key-positions = <19 20 21>;
+			layers = <DEF>;
+		};
+		//combo_caps_lock {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp CAPSLOCK>;
+		//	key-positions = <31 32 33>;
+		//};
+		//combo_sysreq {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp SYSREQ>;
+		//	key-positions = <8 9 10>;
+		//};
+	};
+};

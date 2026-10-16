@@ -30,4 +30,4 @@
 	};
 };
 
-#include "keymap/base.keymap"
+#include "keymap/keymap.dtsi"

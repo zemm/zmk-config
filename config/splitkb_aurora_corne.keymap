@@ -1,7 +1,12 @@
-/*
- * Copyright (c) 2020 The ZMK Contributors
+/**
+ * SplitKb Aurora Corne
  *
- * SPDX-License-Identifier: MIT
+ * https://splitkb.com/collections/keyboard-kits/products/aurora-corne
+ *
  */
 
-#include "common-split-42.keymap"
+// The outer keys are the primary thumb keys for me on the Corne.
+#define KM_THUMBS(L_SEC, L_PRI, L_AUX, MIDDLE, R_AUX, R_PRI, R_SEC) \
+    L_AUX L_SEC L_PRI ___ R_PRI R_SEC R_AUX
+
+#include "keymap/base.keymap"

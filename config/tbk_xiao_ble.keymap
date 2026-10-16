@@ -1,13 +1,18 @@
-/*
- * Copyright (c) 2024 The ZMK Contributors
+/**
+ * Bastard Keyboards TBK Mini with a custom wireless XIAO based controller
  *
- * SPDX-License-Identifier: MIT
+ * https://github.com/Bastardkb/TBK-Mini
+ * https://github.com/zemm/xiao-ble-adapter
  */
 
-#include "common-split-42.keymap"
+// The middle keys are the primary thumb keys for me on the TBK Mini.
+#define KM_THUMBS(L_SEC, L_PRI, L_AUX, MIDDLE, R_AUX, R_PRI, R_SEC) \
+    L_SEC L_PRI L_AUX ___ R_AUX R_PRI R_SEC
 
 / {
 	chosen {
 		zmk,matrix_transform = &tbk_mini_transform;
 	};
 };
+
+#include "keymap/base.keymap"

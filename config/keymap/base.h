@@ -66,6 +66,12 @@
 #if !defined(__T__)
     #define __T__
 #endif
+#if !defined(__TL__)
+    #define __TL__
+#endif
+#if !defined(__TR__)
+    #define __TR__
+#endif
 #if !defined(___)
     #define ___
 #endif

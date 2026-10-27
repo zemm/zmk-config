@@ -45,49 +45,58 @@
 		//COMBO_L(gt, &kp GT, 33 34, LAYERS_ALPHANUM)
 		////COMBO_S(ret, &kp RET, 33 34, LAYERS_ALL)
 
-		// left hand triplets
-		//combo_scroll_lock {
-		//	timeout-ms = <20>;
-		//	bindings = <&kp SCROLLLOCK>;
-		//	key-positions = <1 2 3>;
-		//};
-		//combo_print_screen {
-		//	timeout-ms = <20>;
-		//	bindings = <&kp PRINTSCREEN>;
-		//	key-positions = <2 3 4>;
-		//};
-		combo_caps_word_left {
-			timeout-ms = <30>;
-			bindings = <&caps_word>;
-			key-positions = <14 15 16>;
-		};
+		// -- Thumb combos
 		//combo_mo_keypad {
 		//	timeout-ms = <30>;
 		//	bindings = <&mo KPD>;
 		//	key-positions = <26 27 28>;
 		//	layers = <DEF>;
 		//};
-		// right hand triplets
-		//combo_pause_break {
+
+
+		// -- Left hand triplets
+		//combo_scroll_lock {
 		//	timeout-ms = <20>;
-		//	bindings = <&kp PAUSE_BREAK>;
-		//	key-positions = <7 8 9>;
+		//	bindings = <&kp SCROLLLOCK>;
+		//	key-positions = <1 2 3>;
 		//};
+		//combo_sysreq {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp SYSREQ>;
+		//	key-positions = <2 3 4>;
+		//};
+		combo_bootloader {
+			timeout-ms = <20>;
+			bindings = <&bootloader>;
+			key-positions = <3 4 5>;
+		};
+		//combo_caps_lock {
+		//	timeout-ms = <20>;
+		//	bindings = <&kp CAPSLOCK>;
+		//	key-positions = <13 14 15>;
+		//};
+		combo_caps_word_left {
+			timeout-ms = <30>;
+			bindings = <&caps_word>;
+			key-positions = <14 15 16>;
+		};
+
+		// -- Right hand triplets
+		combo_print_screen {
+			timeout-ms = <20>;
+			bindings = <&kp PRINTSCREEN>;
+			key-positions = <8 9 10>;
+		};
 		combo_caps_word_right {
 			timeout-ms = <20>;
 			bindings = <&caps_word>;
 			key-positions = <19 20 21>;
 			layers = <DEF>;
 		};
-		//combo_caps_lock {
-		//	timeout-ms = <20>;
-		//	bindings = <&kp CAPSLOCK>;
-		//	key-positions = <31 32 33>;
-		//};
-		//combo_sysreq {
-		//	timeout-ms = <20>;
-		//	bindings = <&kp SYSREQ>;
-		//	key-positions = <8 9 10>;
-		//};
+		combo_pause_break {
+			timeout-ms = <20>;
+			bindings = <&kp PAUSE_BREAK>;
+			key-positions = <32 33 34>;
+		};
 	};
 };
